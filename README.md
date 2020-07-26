@@ -15,9 +15,11 @@ Installation
 ------------
 
 clima\_anom works on Python 3 on Linux, Windows or OSX.
-before clone the package inside and install
+first clone the package then
 
     cd Climatology
+
+and intall
 
     pip install .
 

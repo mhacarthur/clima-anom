@@ -19,7 +19,7 @@ Installation
 clima\_anom works on Python 3 on Linux, Windows or OSX.
 first clone the package then
 
-    cd Climatology
+    cd clima\_anom
 
 and intall
 

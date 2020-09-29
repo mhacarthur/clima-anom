@@ -807,8 +807,7 @@ def create_netcdf(info,latitude,longitude,data):
         tiempo[i] = int(stamp)
     tiempo = date2num(dates, units='days since '+str(info['year_start'])+'-'+str(info['month_start'])+'-'+str(info['day_start']))
 
-    info_a = { 'comment': info['time_frequency']+' '+info['title']+' from '+str(info['year_start'])+'-'+str(info['month_start'])+'-'+str(info['day_start'])+' to december '+str(info['year_end'])+'-'+str(info['month_end'])+'-'+str(info['day_end']),
-           'time_units': 'days since '+str(info['year_start'])+'-'+str(info['month_start'])+'-'+str(info['day_start'])} # don't edit
+    
     
     nc_title = info['title']
     nc_comment = info_a['comment']

@@ -24,5 +24,19 @@ first clone the package then
 and intall
 
     pip install .
+    
+Content
+-------
+For obtain a funtions list use the command help_funtion()
+
+	read_netcdf
+	clima_anom
+	season
+	correlation
+	closest_point
+	extract_area
+	MAE
+	RMSE
+	DiasDoAno
 
 

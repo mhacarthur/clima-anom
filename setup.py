@@ -2,12 +2,12 @@
 from setuptools import setup
 setup(
 name='clima-anom',
-version='0.2.7',
+version='0.2.8',
 description='Obtain the climatology and anomalies only for monthly data.',
-url='#',
+url='https://github.com/mhacarthur/clima_anom',
 author='Cesar Arturo Sanchez Pena',
 author_email='arturo66cta@gmail.com',
 license='MIT',
 packages=['clima_anom'],
-keywords=['climatology','anomalies','monthly','correlation','netcdf','closest','MAE','RMSE','BIAS','DiasDoAno','Createnetcdf'],
+keywords=['climatology','anomalies','monthly','correlation','netcdf','closest','MAE','RMSE','BIAS','DiasDoAno','Createnetcdf','remove continent'],
 zip_safe=False)

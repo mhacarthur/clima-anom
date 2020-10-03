@@ -38,5 +38,7 @@ For obtain a funtions list use the command help_funtion()
 	MAE
 	RMSE
 	DiasDoAno
+	create_netcdf
+	remove_continent_ocean
 
 

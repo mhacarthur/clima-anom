@@ -8,6 +8,8 @@ import datetime
 from datetime import timedelta
 from dateutil.rrule import rrule, MONTHLY, DAILY
 from netCDF4 import date2num
+import matplotlib.pyplot as plt
+from mpl_toolkits.basemap import Basemap
 
 def print_bold(msg):
     print("\033[1m"+msg+"\033[0m")
@@ -264,10 +266,10 @@ def read_netcdf(filename,show=1):
         dict_out[var_list[i]] = globals()[var_list[i]]
 
     if show == 1:
-    	print('Number of variables: ',var_len)
+        print('Number of variables: ',var_len)
     if show == 2:
         for i in range(var_len):
-        	print(var_list[i],':',np.shape(globals()[var_list[i]]))
+            print(var_list[i],':',np.shape(globals()[var_list[i]]))
     
     if 'time' in var_total:
         time_0 = data.variables['time'][:]
@@ -431,7 +433,7 @@ def season(var_in,season=1):
 
     else:
         print('')
-        print('ERROR: Season doesn\'t exist, chosse one:')
+        print('ERROR: Season doesn\'t exist, choose one:')
         print('1: Summer')
         print('2: Autumn')
         print('3: winter')
@@ -859,3 +861,71 @@ def create_netcdf(info,latitude,longitude,data):
     print('File title: ',info['title'])
     print('var title: ',info['var_name'])
     print('var units: ',info['var_units'])
+
+def remove_continent_ocean(var_in,longitude,latitude,remove='continent'):
+
+    len_in = len(np.shape(var_in))
+    
+    lat_mi = min(latitude)
+    lat_ma = max(latitude)
+    lon_mi = min(longitude)
+    lon_ma = max(longitude)
+    
+    len_latitude = len(np.shape(latitude))
+    if len_latitude != 1:
+        print('ERROR: latitude doesn\'t have 1 dimension')
+        print('Actual latitude Dimension: ',len_latitude)
+        print('')
+        var_out = 0
+        return var_out
+    
+    len_longitude = len(np.shape(longitude))
+    if len_longitude != 1:
+        print('ERROR: longitude doesn\'t have 1 dimension')
+        print('Actual longitude Dimension: ',len_longitude)
+        print('')
+        var_out = 0
+        return var_out
+    
+    var_out = np.copy(var_in)
+    
+    if len_in == 3:
+
+        m1 = Basemap(projection='cyl',llcrnrlat=lat_mi,urcrnrlat=lat_ma,llcrnrlon=lon_mi,urcrnrlon=lon_ma)
+        
+        lons,lats = np.meshgrid(longitude,latitude)
+        x,y = m1(lons,lats)
+        
+        if remove == 'continent' or remove == 'Continent' or remove == '1':
+            for i in longitude:
+                for j in latitude:
+                    if m1.is_land(i,j) == True:
+                        a, = np.where(latitude == j)
+                        b, = np.where(longitude == i)
+                        var_out[:,a,b] = np.nan
+            return var_out
+        
+        if remove == 'ocean' or remove == 'Ocean' or remove == '2':
+            for i in longitude:
+                for j in latitude:
+                    if m1.is_land(i,j) == False:
+                        a, = np.where(latitude == j)
+                        b, = np.where(longitude == i)
+                        var_out[:,a,b] = np.nan
+            return var_out
+    
+        else:
+            print('')
+            print('ERROR: Option',remove,'doesn\'t exist, choose one:')
+            print('1: continent')
+            print('2: ocean')
+            var_out = 0
+            return var_out
+                    
+    else:
+        print('ERROR: the variable doesn\'t have 3 dimensions, please convert to (time,lat,lon)')
+        print('Actual variable Dimension: ',len_in)
+        print('')
+        var_out = 0
+        
+        return var_out      

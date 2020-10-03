@@ -36,7 +36,7 @@ and intall
     
 Content
 -------
-For obtain a funtions list use the command help_funtion()
+List of funtions
 
 	read_netcdf
 	clima_anom
@@ -49,4 +49,14 @@ For obtain a funtions list use the command help_funtion()
 	DiasDoAno
 	create_netcdf
 
+Help
+----
+For obtain a list of funtion into python use:
+
+	import clima_anom as ca
+	ca.help_funtion()
+
+For obtain a help for specific funtion:
+
+	ca.help_funtion('read_netcdf')
 

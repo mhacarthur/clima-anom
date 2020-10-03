@@ -48,6 +48,7 @@ List of funtions
 	RMSE
 	DiasDoAno
 	create_netcdf
+ 	remove_continent_ocean
 
 Help
 ----

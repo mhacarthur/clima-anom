@@ -37,6 +37,8 @@ def help_funtion(funtion_name='blank'):
         print('MAE')
         print('RMSE')
         print('DiasDoAno')
+        print('create_netcdf')
+        print('remove_continent_ocean')
         print('')
         print('Ejemplo: help_funtion(\'season\')')
         
@@ -212,12 +214,18 @@ def help_funtion(funtion_name='blank'):
     	print('      Interest Area dimension:  (840, 13, 20)')
 
     elif funtion_name == 'MAE':
-    	print('')
-    	print('In construction ..')
+        print('')
+        print_bold('MAE')
+        print('Use for obtain the Mean absolute error for two vectors')
+        print('Both vectors are the same lenght')
+        print('      MAE_1_2 = MAE(data1,data2)')
 
     elif funtion_name == 'RMSE':
-    	print('')
-    	print('In construction ..')
+        print('')
+        print_bold('RMSE')
+        print('Use for obtain the Root-mean-square error for two vectors')
+        print('Both vectors are the same lenght')
+        print('      RMSE_1_2 = RMSE(data1,data2)')
         
     elif funtion_name == 'DiasDoAno':
         print('')
@@ -234,7 +242,28 @@ def help_funtion(funtion_name='blank'):
         print('')
         print_bold('create_netcdf')
         print('')
-        print('In construction ..')
+        print('Firts define o dictionary info, for example:')
+        print('')
+        print('      info = {\'file\': \'../data/Hgt_500hPa_Anomalies_Jan80_Dec83.nc\',')
+        print('              \'title\': \'Geopotential Height\',')
+        print('              \'year_start\':1980,\'month_start\':1,\'day_start\':1,')
+        print('              \'year_end\':1983,\'month_end\':12,\'day_end\':1,')
+        print('              \'time_frequency\': \'Monthly\',')
+        print('              \'var_name\': \'hgt\',')
+        print('              \'var_units\': \'hPa\'}')
+        print('')
+        print('For \'time_frequency\' we can use: \'Daily\' or \'Monthly\'')        
+        
+    elif funtion_name == 'remove_continent_ocean':
+        print('')
+        print_bold('remove_continent_ocean')
+        print('')
+        print('Use data of latitude, longitude and variable for extrat ocean or continent:')
+        print('')
+        print('      vwn_without_ocean = clima_anom.remove_continent_ocean(vwn,lat,lon,\'ocean\')')
+        print('')
+        print('For continent, we can use: "Continent", "Continent" or "1"')
+        print('For ocean, we can use: "Ocean", "ocean" or "2"')
         
     else:
     	print('')
@@ -503,7 +532,6 @@ def closest_point(data,lat,lon,lat_ref,lon_ref):
     #print('Id, Latitud mas cercana : ',index_lat[0],result[0,1])
     #print('Id, Longitud mas cercana: ',index_lon[0],result[0,2])
     #print('')
-
         
     salida = data[:,index_lat[0],index_lon[0]]
             

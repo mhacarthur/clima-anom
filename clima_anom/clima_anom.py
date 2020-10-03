@@ -9,7 +9,11 @@ from datetime import timedelta
 from dateutil.rrule import rrule, MONTHLY, DAILY
 from netCDF4 import date2num
 import matplotlib.pyplot as plt
-#from mpl_toolkits.basemap import Basemap
+
+import cartopy.io.shapereader as shpreader
+import shapely.geometry as sgeom
+from shapely.ops import unary_union
+from shapely.prepared import prep
 
 def print_bold(msg):
     print("\033[1m"+msg+"\033[0m")
@@ -863,6 +867,14 @@ def create_netcdf(info,latitude,longitude,data):
     print('var units: ',info['var_units'])
 
 def remove_continent_ocean(var_in,longitude,latitude,remove='continent'):
+    
+    land_shp_fname = shpreader.natural_earth(resolution='50m',category='physical', name='land')
+
+    land_geom = unary_union(list(shpreader.Reader(land_shp_fname).geometries()))
+    land = prep(land_geom)
+    
+    def is_land(x, y):
+        return land.contains(sgeom.Point(x, y))
 
     len_in = len(np.shape(var_in))
     
@@ -890,16 +902,11 @@ def remove_continent_ocean(var_in,longitude,latitude,remove='continent'):
     var_out = np.copy(var_in)
     
     if len_in == 3:
-
-        m1 = Basemap(projection='cyl',llcrnrlat=lat_mi,urcrnrlat=lat_ma,llcrnrlon=lon_mi,urcrnrlon=lon_ma)
-        
-        lons,lats = np.meshgrid(longitude,latitude)
-        x,y = m1(lons,lats)
         
         if remove == 'continent' or remove == 'Continent' or remove == '1':
             for i in longitude:
                 for j in latitude:
-                    if m1.is_land(i,j) == True:
+                    if land.contains(sgeom.Point(i,j)) == True:
                         a, = np.where(latitude == j)
                         b, = np.where(longitude == i)
                         var_out[:,a,b] = np.nan
@@ -908,7 +915,7 @@ def remove_continent_ocean(var_in,longitude,latitude,remove='continent'):
         if remove == 'ocean' or remove == 'Ocean' or remove == '2':
             for i in longitude:
                 for j in latitude:
-                    if m1.is_land(i,j) == False:
+                    if land.contains(sgeom.Point(i,j)) == False:
                         a, = np.where(latitude == j)
                         b, = np.where(longitude == i)
                         var_out[:,a,b] = np.nan
@@ -928,4 +935,4 @@ def remove_continent_ocean(var_in,longitude,latitude,remove='continent'):
         print('')
         var_out = 0
         
-        return var_out      
+        return var_out

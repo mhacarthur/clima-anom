@@ -33,6 +33,13 @@ first clone the package then
 and intall
 
     $pip install .
+
+Requirements
+------------
+
+How to install requirements with pip
+
+    $pip install -r requirements.txt
     
 Content
 -------

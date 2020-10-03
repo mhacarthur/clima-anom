@@ -20,7 +20,7 @@ Obtain a repository
 
 Clone 
 
-    $git clone https://github.com/mhacarthur/clima_anom
+    $git clone https://github.com/mhacarthur/clima_anom.git
 
 Installation
 ------------

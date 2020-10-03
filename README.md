@@ -11,7 +11,16 @@ Requirements
 
 [netCDF4](https://pypi.org/project/netCDF4/)
 
-math
+[matplotlib](https://pypi.org/project/matplotlib/)
+
+[cartopy](https://pypi.org/project/Cartopy/)
+
+Obtain a repository
+------------------
+
+Clone 
+
+    $git clone https://github.com/mhacarthur/clima_anom
 
 Installation
 ------------
@@ -19,11 +28,11 @@ Installation
 clima\_anom works on Python 3 on Linux, Windows or OSX.
 first clone the package then
 
-    cd clima_anom
+    $cd clima_anom
 
 and intall
 
-    pip install .
+    $pip install .
     
 Content
 -------
@@ -39,6 +48,5 @@ For obtain a funtions list use the command help_funtion()
 	RMSE
 	DiasDoAno
 	create_netcdf
-	remove_continent_ocean
 
 

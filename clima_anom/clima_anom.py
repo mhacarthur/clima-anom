@@ -9,7 +9,7 @@ from datetime import timedelta
 from dateutil.rrule import rrule, MONTHLY, DAILY
 from netCDF4 import date2num
 import matplotlib.pyplot as plt
-from mpl_toolkits.basemap import Basemap
+#from mpl_toolkits.basemap import Basemap
 
 def print_bold(msg):
     print("\033[1m"+msg+"\033[0m")

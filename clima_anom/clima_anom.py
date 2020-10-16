@@ -894,7 +894,7 @@ def create_netcdf(info,latitude,longitude,data):
     print('var title: ',info['var_name'])
     print('var units: ',info['var_units'])
 
-def remove_continent_ocean(var_in,longitude,latitude,remove='continent'):
+def remove_continent_ocean(var_in,latitude,longitude,remove='continent'):
     
     land_shp_fname = shpreader.natural_earth(resolution='50m',category='physical', name='land')
 
@@ -964,3 +964,4 @@ def remove_continent_ocean(var_in,longitude,latitude,remove='continent'):
         var_out = 0
         
         return var_out
+

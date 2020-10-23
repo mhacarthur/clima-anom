@@ -15,6 +15,8 @@ Requirements
 
 [cartopy](https://pypi.org/project/Cartopy/)
 
+[shapefile] (https://pypi.org/project/pyshp/)
+
 Obtain a repository
 ------------------
 
@@ -56,6 +58,7 @@ List of funtions
 	DiasDoAno
 	create_netcdf
  	remove_continent_ocean
+ 	extract_shapefile
 
 Help
 ----

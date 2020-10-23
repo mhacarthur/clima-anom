@@ -9,6 +9,8 @@ from datetime import timedelta
 from dateutil.rrule import rrule, MONTHLY, DAILY
 from netCDF4 import date2num
 import matplotlib.pyplot as plt
+import shapefile
+from shapely.geometry import shape, Point
 
 import cartopy.io.shapereader as shpreader
 import shapely.geometry as sgeom
@@ -264,6 +266,20 @@ def help_funtion(funtion_name='blank'):
         print('')
         print('For continent, we can use: "Continent", "Continent" or "1"')
         print('For ocean, we can use: "Ocean", "ocean" or "2"')
+
+    elif funtion_name == 'extract_shapefile':
+        print('')
+        print_bold('extract_shapefile')
+        print('')
+        print('This funtion extract a variable information using a shapefile')
+        print('')
+        print('      data_dir = \'../data/Hgt_500hPa_Anomalies_Jan80_Dec83.nc\'')
+        print('      data = ca.read_netcdf(data_dir,2)')
+        print('      lat = data[\'lat\']')
+        print('      lon = data[\'lon\']')
+        print('      hgt = data[\'var\']')
+        print('')
+        print('      hgt_shape = clima_anom.extract_shapefile(\'../shp/continent.shp\',hgt,lat,lon)')
         
     else:
     	print('')
@@ -965,3 +981,24 @@ def remove_continent_ocean(var_in,latitude,longitude,remove='continent'):
         
         return var_out
 
+def extract_shapefile(shapefile_dir,data_in,lat_in,lon_in):
+    
+    r = shapefile.Reader(shapefile_dir)
+
+    shapes = r.shapes()
+    polygon = shape(shapes[0]) 
+    
+    ss = np.shape(data_in)
+    data_out = np.copy(data_in)
+    
+    lon_list = []
+    lat_list = []
+    for j in lat_in:
+        for i in lon_in:
+            a = Point(i,j)
+            if polygon.contains(a) == False:
+                temp1, = np.where(lon_in == i)
+                temp2, = np.where(lat_in == j)
+                data_out[:,temp2,temp1] = np.nan
+    
+    return data_out

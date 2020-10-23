@@ -15,7 +15,7 @@ Requirements
 
 [cartopy](https://pypi.org/project/Cartopy/)
 
-[shapefile] (https://pypi.org/project/pyshp/)
+[shapefile](https://pypi.org/project/pyshp/)
 
 Obtain a repository
 ------------------

@@ -319,6 +319,8 @@ def read_netcdf(filename,show=1):
     if show == 2:
         for i in range(var_len):
             print(var_list[i],':',np.shape(globals()[var_list[i]]))
+    if show == 3:
+        print(data.variables)
     
     if 'time' in var_total:
         time_0 = data.variables['time'][:]

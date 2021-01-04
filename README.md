@@ -2,9 +2,6 @@
 clima\_anom - Climatology and Anomalies in Python
 =================================================
 
-# proj-name 
-## proj-title
-
 Overview
 --------
 

@@ -73,9 +73,9 @@ For obtain a help for specific funtion:
 	
 Data use in examples
 ----
-[hgt 500hPa](https://psl.noaa.gov/cgi-bin/DataAccess.pl?DB_dataset=CDC+Derived+NCEP+Reanalysis+Products+Pressure+Level&DB_variable=Geopotential+height&DB_statistic=Mean&DB_tid=90220&DB_did=37&DB_vid=3137)
+[hgt 500 hPa](https://psl.noaa.gov/cgi-bin/DataAccess.pl?DB_dataset=CDC+Derived+NCEP+Reanalysis+Products+Pressure+Level&DB_variable=Geopotential+height&DB_statistic=Mean&DB_tid=90220&DB_did=37&DB_vid=3137)
 
-[uwnd 500hPa](https://psl.noaa.gov/cgi-bin/DataAccess.pl?DB_dataset=CDC+Derived+NCEP+Reanalysis+Products+Pressure+Level&DB_variable=u-wind&DB_statistic=Mean&DB_tid=90220&DB_did=37&DB_vid=3314)
+[uwnd 500 hPa](https://psl.noaa.gov/cgi-bin/DataAccess.pl?DB_dataset=CDC+Derived+NCEP+Reanalysis+Products+Pressure+Level&DB_variable=u-wind&DB_statistic=Mean&DB_tid=90220&DB_did=37&DB_vid=3314)
 
 Figures
 ----
@@ -89,7 +89,7 @@ Sesonal climatology for hgt 500 hPa
   <img src="https://raw.githubusercontent.com/mhacarthur/clima_anom/master/fig/Monthly_Seasonal.png" alt="Seasonal Climatology" />
 </div>
 
-Remove a specific mask for data
+Remove a specific mask for uwnd 500 hPa
 <div align="center">
   <img src="https://raw.githubusercontent.com/mhacarthur/clima_anom/master/fig/Wind_remove_continent_ocean.png" alt="Wind remove mask" />
 </div>

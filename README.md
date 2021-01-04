@@ -73,14 +73,17 @@ For obtain a help for specific funtion:
 
 Figures
 ----
+Montlhy climatology for hgt 500 hPa
 <div align="center">
   <img src="https://raw.githubusercontent.com/mhacarthur/clima_anom/master/fig/Monthly_Climatology.png" alt="Monthly_Climatology" />
 </div>
 
+Sesonal climatology for hgt 500 hPa
 <div align="center">
-  <img src="https://raw.githubusercontent.com/mhacarthur/clima_anom/master/fig/Monthly_Seasonal.png" alt="Monthly Seasonal" />
+  <img src="https://raw.githubusercontent.com/mhacarthur/clima_anom/master/fig/Monthly_Seasonal.png" alt="Seasonal Climatology" />
 </div>
 
+Remove a specific mask for data
 <div align="center">
   <img src="https://raw.githubusercontent.com/mhacarthur/clima_anom/master/fig/Wind_remove_continent_ocean.png" alt="Wind remove mask" />
 </div>

@@ -2,6 +2,8 @@
 clima\_anom - Climatology and Anomalies in Python
 =================================================
 
+[![npm version](https://badge.fury.io/js/clima_anom.svg)](//npmjs.com/package/clima_anom)
+
 Overview
 --------
 

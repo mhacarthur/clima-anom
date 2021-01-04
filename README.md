@@ -70,6 +70,12 @@ For obtain a list of funtion into python use:
 For obtain a help for specific funtion:
 
 	ca.help_funtion('read_netcdf')
+	
+Data use in examples
+----
+[hgt 500hPa](https://psl.noaa.gov/cgi-bin/DataAccess.pl?DB_dataset=CDC+Derived+NCEP+Reanalysis+Products+Pressure+Level&DB_variable=Geopotential+height&DB_statistic=Mean&DB_tid=90220&DB_did=37&DB_vid=3137)
+
+[uwnd 500hPa](https://psl.noaa.gov/cgi-bin/DataAccess.pl?DB_dataset=CDC+Derived+NCEP+Reanalysis+Products+Pressure+Level&DB_variable=u-wind&DB_statistic=Mean&DB_tid=90220&DB_did=37&DB_vid=3314)
 
 Figures
 ----

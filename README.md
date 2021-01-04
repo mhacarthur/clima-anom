@@ -67,7 +67,7 @@ For obtain a list of funtion into python use:
 	import clima_anom as ca
 	ca.help_funtion()
 
-For obtain a help for specific funtion:
+Help for specific funtion:
 
 	ca.help_funtion('read_netcdf')
 	

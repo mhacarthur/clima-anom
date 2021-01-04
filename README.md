@@ -71,3 +71,16 @@ For obtain a help for specific funtion:
 
 	ca.help_funtion('read_netcdf')
 
+Figures
+----
+<div align="center">
+  <img src="https://raw.githubusercontent.com/mhacarthur/clima_anom/master/fig/Monthly_Climatology.png" alt="Monthly_Climatology" />
+</div>
+
+<div align="center">
+  <img src="https://raw.githubusercontent.com/mhacarthur/clima_anom/master/fig/Monthly_Seasonal.png" alt="Monthly Seasonal" />
+</div>
+
+<div align="center">
+  <img src="https://raw.githubusercontent.com/mhacarthur/clima_anom/master/fig/Wind_remove_continent_ocean.png" alt="Wind remove mask" />
+</div>

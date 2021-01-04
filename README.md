@@ -2,8 +2,8 @@
 clima\_anom - Climatology and Anomalies in Python
 =================================================
 
-$ git status
-$ cat package.json | grep '\"version\"'
+npm version patch
+npm publish
 
 Overview
 --------

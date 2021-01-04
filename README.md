@@ -2,8 +2,7 @@
 clima\_anom - Climatology and Anomalies in Python
 =================================================
 
-npm version patch
-npm publish
+[![NPM version](https://img.shields.io/npm/v/clima_anom.svg)](https://www.npmjs.com/package/clima_anom)
 
 Overview
 --------

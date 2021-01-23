@@ -1,5 +1,5 @@
 # Byte-compiled / optimized / DLL files
-.ipynb_checkpoints/
+examples/.ipynb_checkpoints/
 Testes.ipynb
 __pycache__/
 *.py[cod]

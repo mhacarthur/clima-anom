@@ -32,7 +32,7 @@ first clone the package then
 
     $cd clima_anom
 
-and intall
+and install
 
     $pip install .
 
@@ -62,7 +62,7 @@ List of funtions
 
 Help
 ----
-For obtain a list of funtion into python use:
+For obtain a list of funtions:
 
 	import clima_anom as ca
 	ca.help_funtion()

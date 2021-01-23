@@ -1,4 +1,5 @@
 # Byte-compiled / optimized / DLL files
 test/
 .ipynb_checkpoints/
-clima_anom/.ipynb_checkpoints/
+#clima_anom/.ipynb_checkpoints/
+#examples/.ipynb_checkpoints/

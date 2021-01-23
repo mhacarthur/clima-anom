@@ -6,7 +6,7 @@ from math import cos, asin, sqrt
 import time as time_b
 import datetime
 from datetime import timedelta
-from dateutil.rrule import rrule, MONTHLY, DAILY
+from dateutil.rrule import rrule, YEARLY, MONTHLY, WEEKLY, DAILY, HOURLY, MINUTELY
 from netCDF4 import date2num
 import matplotlib.pyplot as plt
 import shapefile
@@ -251,10 +251,11 @@ def help_funtion(funtion_name='blank'):
         print('              \'year_start\':1980,\'month_start\':1,\'day_start\':1,')
         print('              \'year_end\':1983,\'month_end\':12,\'day_end\':1,')
         print('              \'time_frequency\': \'Monthly\',')
+        print('              \'time_interval\': 1,')  
         print('              \'var_name\': \'hgt\',')
         print('              \'var_units\': \'hPa\'}')
         print('')
-        print('For \'time_frequency\' we can use: \'Daily\' or \'Monthly\'')        
+        print('For \'time_frequency\' we can use: \'Monthly\', \'Weekly\', \'Daily\', \'Hourly\', \'Minutely\'')        
         
     elif funtion_name == 'remove_continent_ocean':
         print('')
@@ -833,30 +834,51 @@ def create_netcdf(info,latitude,longitude,data):
         print('ERROR: Year Start cannot be greater than Year End')
         dates = 0
         return dates
+
+    str_dt = datetime.datetime(info['year_start'],info['month_start'],info['day_start'],info['hour_start'],info['minute_start'])
+    end_dt = datetime.datetime(info['year_end'],info['month_end'],info['day_end'],info['hour_end'],info['minute_end'])
     
-    if info['time_frequency'] == 'Daily' or info['time_frequency'] == 'daily':
-        strt_dt = datetime.date(info['year_start'],info['month_start'],info['day_start'])
-        end_dt = datetime.date(info['year_end'],info['month_end'],info['day_end'])
-        dates = [dt for dt in rrule(DAILY, dtstart=strt_dt, until=end_dt)]
+    if info['time_frequency'] == 'Monthly' or info['time_frequency'] == 'monthly':
+        dates = [dt for dt in rrule(MONTHLY, interval=info['time_interval'], dtstart=str_dt, until=end_dt)]
         print('Time Start:',dates[0])
         print('Time End:',dates[-1])
         print('Time Frequency:',info['time_frequency'])
         print('Time Lenght:',len(dates))
-        
-    elif info['time_frequency'] == 'Monthly' or info['time_frequency'] == 'monthly':
-        strt_dt = datetime.date(info['year_start'],info['month_start'],info['day_start'])
-        end_dt = datetime.date(info['year_end'],info['month_end'],info['day_end'])
-        dates = [dt for dt in rrule(MONTHLY, dtstart=strt_dt, until=end_dt)]
+    
+    elif info['time_frequency'] == 'Weekly' or info['time_frequency'] == 'weekly':
+        dates = [dt for dt in rrule(WEEKLY, interval=info['time_interval'], dtstart=str_dt, until=end_dt)]
         print('Time Start:',dates[0])
         print('Time End:',dates[-1])
         print('Time Frequency:',info['time_frequency'])
         print('Time Lenght:',len(dates))
-        
+
+    elif info['time_frequency'] == 'Daily' or info['time_frequency'] == 'daily':
+        dates = [dt for dt in rrule(DAILY, interval=info['time_interval'], dtstart=str_dt, until=end_dt)]
+        print('Time Start:',dates[0])
+        print('Time End:',dates[-1])
+        print('Time Frequency:',info['time_frequency'])
+        print('Time Lenght:',len(dates))
+           
+    elif info['time_frequency'] == 'Hourly' or info['time_frequency'] == 'hourly':
+        dates = [dt for dt in rrule(HOURLY, interval=info['time_interval'], dtstart=str_dt, until=end_dt)]
+        print('Time Start:',dates[0])
+        print('Time End:',dates[-1])
+        print('Time Frequency:',info['time_frequency'])
+        print('Time Lenght:',len(dates))
+    
+    elif info['time_frequency'] == 'Minutely' or info['time_frequency'] == 'minutely':
+        dates = [dt for dt in rrule(MINUTELY, interval=info['time_interval'], dtstart=str_dt, until=end_dt)]
+        print('Time Start:',dates[0])
+        print('Time End:',dates[-1])
+        print('Time Frequency:',info['time_frequency'])
+        print('Time Lenght:',len(dates))
+    
     tiempo = np.zeros([len(dates)])
     for i in range(12):
         dtt = dates[i].timetuple() 
         stamp = time_b.mktime(dtt)
         tiempo[i] = int(stamp)
+
     tiempo = date2num(dates, units='days since '+str(info['year_start'])+'-'+str(info['month_start'])+'-'+str(info['day_start']))
 
     info_a = { 'comment': info['time_frequency']+' '+info['title']+' from '+str(info['year_start'])+'-'+str(info['month_start'])+'-'+str(info['day_start'])+' to december '+str(info['year_end'])+'-'+str(info['month_end'])+'-'+str(info['day_end']),

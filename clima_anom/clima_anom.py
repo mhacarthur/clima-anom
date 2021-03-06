@@ -874,6 +874,11 @@ def create_netcdf(info,latitude,longitude,data):
         print('Time End:',dates[-1])
         print('Time Frequency:',info['time_frequency'])
         print('Time Lenght:',len(dates))
+        
+    else:
+        print('ERROR: time_frequency \"' + info['time_frequency'] +'\" not defined')
+        dates = 'time_frequency should be: Monthly, Weekly, Daily, Hourly or Minutely'
+        return dates
     
     tiempo = np.zeros([len(dates)])
     

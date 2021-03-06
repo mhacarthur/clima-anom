@@ -2,7 +2,7 @@
 from setuptools import setup
 setup(
 name='clima-anom',
-version='0.4.8',
+version='0.4.9',
 description='Obtain the climatology and anomalies only for monthly data.',
 url='https://github.com/mhacarthur/clima_anom',
 author='Cesar Arturo Sanchez Pena',

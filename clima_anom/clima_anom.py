@@ -876,11 +876,14 @@ def create_netcdf(info,latitude,longitude,data):
         print('Time Lenght:',len(dates))
     
     tiempo = np.zeros([len(dates)])
+    
+# ===================================================
+#    GENERA ERRORES     
 #    for i in range(12):  #No se porque 12
-    for i in range(len(dates)):
-        dtt = dates[i].timetuple() 
-        stamp = time_b.mktime(dtt)
-        tiempo[i] = int(stamp)
+#    for i in range(len(dates)):
+#        dtt = dates[i].timetuple() 
+#        stamp = time_b.mktime(dtt)
+#        tiempo[i] = int(stamp)
 
     tiempo = date2num(dates, units='days since '+str(info['year_start'])+'-'+str(info['month_start'])+'-'+str(info['day_start']))
 

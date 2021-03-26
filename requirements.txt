@@ -49,7 +49,7 @@ pysmbc==1.0.20
 python-distutils-extra==2.39
 pytoml==0.1.21
 pyxdg==0.26
-PyYAML==5.3.1
+PyYAML==5.4
 QScintilla==2.11.5
 rados==2.0.0
 ranger-fm==1.9.3

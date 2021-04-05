@@ -1,70 +1,83 @@
-apparmor==2.13.4
-appdirs==1.4.4
-application-utility==1.3.2
-btrfsutil==1.2.0
+argon2-cffi==20.1.0
+async-generator==1.10
+attrs==20.2.0
+backcall==0.2.0
+bleach==3.2.1
 bumblebee-status==2.0.5
-CacheControl==0.12.6
-catfish==1.4.13
-ceph-volume==1.0.0
-cephfs==2.0.0
-cephfs-shell==0.0.1
-chardet==3.0.4
-clima-anom==0.2.9
-colorama==0.4.3
-configobj==5.0.6
-contextlib2==0.6.0.post1
-distlib==0.3.1
-distro==1.5.0
-docopt==0.6.2
-gufw==20.4.0
-html5lib==1.1
-idna==2.10
-keyutils==0.6
-lensfun==0.3.95
-LibAppArmor==2.13.4
-lightdm-gtk-greeter-settings==1.2.2
-louis==3.15.0
-menulibre==2.2.1
-msgpack==1.0.0
-mugshot==0.4.2
-netifaces==0.10.9
-npyscreen==4.10.5
-ordered-set==4.0.2
+Cartopy @ file:///tmp/build/80754af9/cartopy_1612289465205/work
+certifi==2020.12.5
+cftime @ file:///tmp/build/80754af9/cftime_1613248244998/work
+clima-anom @ file:///home/arturo/github/Climatology
+cycler==0.10.0
+decorator @ file:///tmp/build/80754af9/decorator_1617389979178/work
+defusedxml==0.6.0
+descartes==1.1.0
+entrypoints==0.3
+h5py==2.10.0
+ipykernel==5.3.4
+ipython==7.18.1
+ipython-genutils==0.2.0
+ipywidgets==7.5.1
+jedi==0.17.2
+Jinja2==2.11.2
+joblib==1.0.0
+jsonschema==3.2.0
+jupyter==1.0.0
+jupyter-client==6.1.7
+jupyter-console==6.2.0
+jupyter-core==4.6.3
+jupyterlab-pygments==0.1.2
+kiwisolver @ file:///tmp/build/80754af9/kiwisolver_1612282420641/work
+MarkupSafe==1.1.1
+matplotlib @ file:///tmp/build/80754af9/matplotlib-suite_1613407855456/work
+mistune==0.8.4
+mkl-fft==1.3.0
+mkl-random==1.1.1
+mkl-service==2.3.0
+mock @ file:///tmp/build/80754af9/mock_1607622725907/work
+nbclient==0.5.0
+nbconvert==6.0.7
+nbformat==5.0.7
+nest-asyncio==1.4.1
+netCDF4==1.5.3
+networkx @ file:///tmp/build/80754af9/networkx_1598376031484/work
+notebook==6.1.4
+numexpr @ file:///tmp/build/80754af9/numexpr_1614798506606/work
+numpy @ file:///tmp/build/80754af9/numpy_and_numpy_base_1603570489231/work
+olefile==0.46
 packaging==20.4
-pacman-mirrors==4.16.4
-pep517==0.8.2
+pandas==1.2.3
+pandocfilters==1.4.2
+parso==0.7.1
 pexpect==4.8.0
-Pillow==7.2.0
-powerline-shell==0.7.0
-progress==1.5
-psutil==5.7.2
+pickleshare==0.7.5
+Pillow @ file:///tmp/build/80754af9/pillow_1617383569452/work
+plotly==4.12.0
+prometheus-client==0.8.0
+prompt-toolkit==3.0.7
 ptyprocess==0.6.0
-pwquality==1.4.2
-pycairo==1.19.1
-PyGObject==3.36.1
-pyparsing==2.4.7
-PyQt5==5.15.1
-PyQt5-sip==12.8.1
-pysmbc==1.0.20
-python-distutils-extra==2.39
-pytoml==0.1.21
-pyxdg==0.26
-PyYAML==5.3.1
-QScintilla==2.11.5
-rados==2.0.0
-ranger-fm==1.9.3
-rbd==2.0.0
-reportlab==3.5.50
-requests==2.24.0
-resolvelib==0.4.0
+Pygments==2.7.1
+pyparsing @ file:///home/linux1/recipes/ci/pyparsing_1610983426697/work
+pyrsistent==0.17.3
+pyshp @ file:///tmp/build/80754af9/pyshp_1610641829514/work
+python-dateutil @ file:///home/ktietz/src/ci/python-dateutil_1611928101742/work
+pytz @ file:///tmp/build/80754af9/pytz_1612215392582/work
+pyzmq==19.0.2
+qtconsole==4.7.7
+QtPy==1.9.0
 retrying==1.3.3
-rgw==2.0.0
-sip==4.19.24
-six==1.15.0
-team==1.0
-terminator==1.92
-toml==0.10.1
-udiskie==2.2.0
-ufw==0.36
-urllib3==1.25.10
+Rtree==0.9.4
+scikit-learn==0.24.1
+scipy @ file:///tmp/build/80754af9/scipy_1616703172749/work
+Send2Trash==1.5.0
+Shapely @ file:///tmp/build/80754af9/shapely_1599817083863/work
+six @ file:///tmp/build/80754af9/six_1605205327372/work
+tables==3.6.1
+terminado==0.9.1
+testpath==0.4.4
+threadpoolctl==2.1.0
+tornado @ file:///tmp/build/80754af9/tornado_1606942300299/work
+traitlets==5.0.4
+wcwidth==0.2.5
 webencodings==0.5.1
+widgetsnbextension==3.5.1

@@ -1,5 +1,6 @@
 # Byte-compiled / optimized / DLL files
 test/
+data/
 .gitignore
 .release-it.json
 examples/.ipynb_checkpoints/*

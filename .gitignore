@@ -1,5 +1,5 @@
 # Byte-compiled / optimized / DLL files
 test/
-.ipynb_checkpoints/
-#clima_anom/.ipynb_checkpoints/
-examples/.ipynb_checkpoints/
+.gitignore
+.release-it.json
+examples/.ipynb_checkpoints/*

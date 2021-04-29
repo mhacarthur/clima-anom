@@ -274,7 +274,7 @@ def help_funtion(funtion_name='blank'):
         print('')
         print_bold('extract_shapefile')
         print('')
-        print('This funtion extract a variable information using a shapefile')
+        print('This funtion extract a variable information using a shapefile, but keeping the same spatial dimensions.')
         print('')
         print('      data_dir = \'../data/Hgt_500hPa_Anomalies_Jan80_Dec83.nc\'')
         print('      data = ca.read_netcdf(data_dir,2)')

@@ -1,6 +1,9 @@
 
+
 clima\_anom - Climatology and Anomalies in Python
 =================================================
+<img src="https://img.shields.io/badge/Version-0.5.0-green" /> <img src="https://img.shields.io/badge/License-MIT-blue" /> <img src="https://img.shields.io/badge/Followers-3.5M-red" /> <img src="https://img.shields.io/badge/Stars-5-orange" /> 
+
 
 Overview
 --------
@@ -97,3 +100,4 @@ Extract information with a shapefile
 <div align="center">
   <img src="https://raw.githubusercontent.com/mhacarthur/clima_anom/master/fig/Extract_shapefile.png" alt="Shapefile" />
 </div>
+

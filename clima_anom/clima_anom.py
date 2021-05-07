@@ -928,7 +928,7 @@ def create_netcdf(info,latitude,longitude,data):
     time.units = nc_time_units
     time.long_name = 'time'
     
-    var = ncfile.createVariable('var',np.float64,('time','lat','lon'))
+    var = ncfile.createVariable(info['var_name'],np.float64,('time','lat','lon'))
     var.units = nc_var_units
     var.standard_name = nc_var_name
     
@@ -944,6 +944,8 @@ def create_netcdf(info,latitude,longitude,data):
     print('File title: ',info['title'])
     print('var title: ',info['var_name'])
     print('var units: ',info['var_units'])
+    
+    ncfile.close()
 
 def remove_continent_ocean(var_in,latitude,longitude,remove='continent'):
     

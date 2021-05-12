@@ -1025,17 +1025,28 @@ def extract_shapefile(shapefile_dir,data_in,lat_in,lon_in):
     shapes = r.shapes()
     polygon = shape(shapes[0]) 
     
-    ss = np.shape(data_in)
     data_out = np.copy(data_in)
     
-    lon_list = []
-    lat_list = []
-    for j in lat_in:
-        for i in lon_in:
-            a = Point(i,j)
+    if len(data_in.shape) == 1:
+        for i in range(len(lat_in)):
+            a = Point(lon_in[i],lat_in[i])
+
             if polygon.contains(a) == False:
-                temp1, = np.where(lon_in == i)
-                temp2, = np.where(lat_in == j)
-                data_out[:,temp2,temp1] = np.nan
+                data_out[i] = np.nan
+            
+        return data_out
     
-    return data_out
+    if len(data_in.shape) == 2 or len(data_in.shape) == 3:
+        for j in lat_in:
+            for i in lon_in:
+                a = Point(i,j)
+                if polygon.contains(a) == False:
+                    temp1, = np.where(lon_in == i)
+                    temp2, = np.where(lat_in == j)
+
+                    if len(data_in.shape) == 2:
+                        data_out[temp2,temp1] = np.nan
+                    elif len(data_in.shape) == 3:
+                        data_out[:,temp2,temp1] = np.nan
+
+        return data_out

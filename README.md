@@ -2,8 +2,7 @@
 
 clima\_anom - Climatology and Anomalies in Python
 =================================================
-<img src="https://img.shields.io/badge/Version-0.5.2-green" /> <img src="https://img.shields.io/badge/License-MIT-blue" /> <img src="https://img.shields.io/badge/Followers-3.5M-red" /> <img src="https://img.shields.io/badge/Stars-5-orange" /> 
-
+<img src="https://img.shields.io/badge/Version-0.5.2-green" /> <img src="https://img.shields.io/badge/License-MIT-blue" /> <img src="https://img.shields.io/badge/Followers-3.5M-red" /> <img src="https://img.shields.io/badge/Stars-5-orange" />[clima-anom](https://pypi.org/project/clima-anom/#description)
 
 Overview
 --------
@@ -27,7 +26,7 @@ Clone
 
     $git clone https://github.com/mhacarthur/clima_anom.git
 
-Installation
+Manual installation
 ------------
 
 clima\_anom works on Python 3 on Linux, Windows or OSX.
@@ -38,6 +37,16 @@ first clone the package then
 and install
 
     $pip install .
+
+Pip installation
+------------
+[clima-anom](https://pypi.org/project/clima-anom/#description)
+
+$pip install clima-anom
+
+for install a specific version
+
+$pip install clima-anom==0.5.2
 
 Requirements
 ------------

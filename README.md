@@ -2,7 +2,7 @@
 
 clima\_anom - Climatology and Anomalies in Python
 =================================================
-<img src="https://img.shields.io/badge/Version-0.5.2-green" /> <img src="https://img.shields.io/badge/License-MIT-blue" /> <img src="https://img.shields.io/badge/Followers-3.5M-red" /> <img src="https://img.shields.io/badge/Stars-5-orange" />[clima-anom](https://img.shields.io/pypi/v/clima-anom?style=for-the-badge)
+<img src="https://img.shields.io/badge/Version-0.5.2-green" /> <img src="https://img.shields.io/badge/License-MIT-blue" /> <img src="https://img.shields.io/badge/Followers-3.5M-red" /> <img src="https://img.shields.io/badge/Stars-5-orange" /> <img alt="PyPI" src="https://img.shields.io/pypi/v/clima-anom?style=for-the-badge">
 
 Overview
 --------

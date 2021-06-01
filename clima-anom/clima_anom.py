@@ -254,16 +254,20 @@ def help_funtion(funtion_name='blank'):
     elif funtion_name == 'MAE':
         print('')
         print_bold('MAE')
-        print('Use for obtain the Mean absolute error for two vectors')
+        print('Use for obtain the Mean absolute error for two series')
         print('Both vectors are the same lenght')
-        print('      MAE_1_2 = MAE(data1,data2)')
+        print('')
+        print('      MAE = MAE(data1,data2)')
+        print('')
 
     elif funtion_name == 'RMSE':
         print('')
         print_bold('RMSE')
-        print('Use for obtain the Root-mean-square error for two vectors')
+        print('Use for obtain the Root-mean-square error for two series')
         print('Both vectors are the same lenght')
-        print('      RMSE_1_2 = RMSE(data1,data2)')
+        print('')
+        print('      RMSE = RMSE(data1,data2)')
+        print('')
         
     elif funtion_name == 'DiasDoAno':
         print('')

@@ -26,6 +26,10 @@ How to install requirements with pip
 
 [pyshp](https://pypi.org/project/pyshp/)
 
+Pip install
+------------
+    $pip install clima-anom
+
 Manual installation
 ------------
 clima\_anom works on Python 3 for Linux, Windows or OSX.
@@ -39,28 +43,22 @@ first clone the package then inside
 and install
 
     $pip install .
-
-Pip install
-------------
-    $pip install clima-anom
-
-Install a specific version, for example 0.5.2
-
-    $pip install clima-anom==0.5.2
-
+    
 Content
 -------
 List of funtions
 
+	help_funtion
 	read_netcdf
 	clima_anom
+	climatology
+	anomalies
 	season
 	correlation
 	closest_point
-	extract_area
 	MAE
 	RMSE
-	DiasDoAno
+	BIAS
 	create_netcdf
 	remove_continent_ocean
 	extract_shapefile
@@ -104,5 +102,6 @@ Extract information with a shapefile
 <div align="center">
   <img src="https://raw.githubusercontent.com/mhacarthur/clima_anom/master/fig/Extract_shapefile.png" alt="Shapefile" />
 </div>
+
 
 

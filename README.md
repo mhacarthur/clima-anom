@@ -3,18 +3,11 @@
 clima-anom - Climatology and Anomalies in Python
 =================================================
 
-<img src="https://img.shields.io/badge/License-MIT-blue?style=for-the-badge" /> 
- <img alt="PyPI" src="https://img.shields.io/pypi/v/numpy?color=green&label=numpy&style=for-the-badge">
- <img alt="PyPI" src="https://img.shields.io/pypi/v/netCDF4?color=green&label=netCDF4&style=for-the-badge">
- <img alt="PyPI" src="https://img.shields.io/pypi/v/matplotlib?color=green&label=matplotlib&style=for-the-badge">
- <img alt="PyPI" src="https://img.shields.io/pypi/v/cartopy?color=green&label=cartopy&style=for-the-badge">
- <img alt="PyPI" src="https://img.shields.io/pypi/v/pyshp?color=green&label=pyshp&style=for-the-badge"> 
-<img alt="PyPI" src="https://img.shields.io/pypi/v/clima-anom?color=red&label=clima-anom&style=for-the-badge">
-
+<img src="https://img.shields.io/badge/License-MIT-blue?style=for-the-badge" /> <img alt="PyPI" src="https://img.shields.io/pypi/v/numpy?color=green&label=numpy&style=for-the-badge"> <img alt="PyPI" src="https://img.shields.io/pypi/v/netCDF4?color=green&label=netCDF4&style=for-the-badge"> <img alt="PyPI" src="https://img.shields.io/pypi/v/matplotlib?color=green&label=matplotlib&style=for-the-badge"> <img alt="PyPI" src="https://img.shields.io/pypi/v/cartopy?color=green&label=cartopy&style=for-the-badge"> <img alt="PyPI" src="https://img.shields.io/pypi/v/pyshp?color=green&label=pyshp&style=for-the-badge"> <img alt="PyPI" src="https://img.shields.io/pypi/v/clima-anom?color=red&label=clima-anom&style=for-the-badge">
 
 Overview
 --------
-
+This code provides tools for the aid of different operations on monthly climate data, mainly obtaining climatologie and anomalies information, in addition to other operations such as data extraction from a shapefile.
 
 Requirements
 ------------

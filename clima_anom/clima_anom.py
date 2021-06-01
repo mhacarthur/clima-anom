@@ -32,6 +32,8 @@ def help_funtion(funtion_name='blank'):
         print('')
         print('read_netcdf')
         print('clima_anom')
+        print('climatology')
+        print('anomalies')
         print('season')
         print('correlation')
         print('closest_point')

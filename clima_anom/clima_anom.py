@@ -109,6 +109,40 @@ def help_funtion(funtion_name='blank'):
         print('     vwnd_dic[\'jan\'][\'anom\']')
         print('')
         
+    elif funtion_name == 'climatology':
+        print('')
+        print_bold('climatology')
+        print('')
+        print('clima_anom.climatology(data_dictionary)')
+        print('')
+        print('Function to obtain a numpy matrix only of the climatology of each month for all period')
+        print('')
+        print('The input data must be the dictionary of clima_anom')
+        print('')
+        print('For example:')
+        print('     vwnd_clima = clima_anom.climatology(vwnd_dic)')
+        print('')
+        print('     print(hgt_anom.shape)')
+        print('     (12, 73, 144)')
+        print('')       
+        
+    elif funtion_name == 'anomalies':
+        print('')
+        print_bold('anomalies')
+        print('')
+        print('clima_anom.anomalies(data_dictionary)')
+        print('')
+        print('Function to obtain a numpy matrix only of the anomalies of each month for all period')
+        print('')
+        print('The input data must be the dictionary of clima_anom')
+        print('')
+        print('For example:')
+        print('     vwnd_anom = clima_anom.anomalies(vwnd_dic)')
+        print('')
+        print('     print(hgt_anom.shape)')
+        print('     (480, 73, 144)')
+        print('')     
+        
     elif funtion_name == 'season':
         print('')
         print_bold('season')
@@ -171,49 +205,49 @@ def help_funtion(funtion_name='blank'):
         print('')
 
     elif funtion_name == 'closest_point':
-    	print('')
-    	print_bold('closest_point')
-    	print('')
-    	print('clima_anom.closest_point(data_vwn[\'vwnd\'],data_vwn[\'lat\'],data_vwn[\'lon\'],lat_ref,lon_ref)')
-    	print('')
-    	print('Funcion para obtener el punto mas proximo a partir de latitud y longitud dentro de una variable y extraer la serie de tiempo.')
-    	print('')
-    	print('      filename_vwn = \'vwn1000_jan50_dec19.nc\'')
-    	print('')
-    	print('      data_vwn = clima_anom.read_netcdf(filename_vwn)')
-    	print('')
-    	print('      result = clima_anom.closest_point(data_vwn[\'vwnd\'],data_vwn[\'lat\'],data_vwn[\'lon\'],-21.5,201.0)')
-    	print('')
-    	print('      Data shape     :  (840, 73, 144)')
-    	print('      Latitude shape :  (73,)')
-    	print('      Longitude shape:  (144,)')
-    	print('')
-    	print('Generando la salida:')
-    	print('')
-    	print('      Id, Latitud mas cercana :  [45] -22.5')
-    	print('      Id, Longitud mas cercana:  [80] 200.0')
+        print('')
+        print_bold('closest_point')
+        print('')
+        print('clima_anom.closest_point(data_vwn[\'vwnd\'],data_vwn[\'lat\'],data_vwn[\'lon\'],lat_ref,lon_ref)')
+        print('')
+        print('Funcion para obtener el punto mas proximo a partir de latitud y longitud dentro de una variable y extraer la serie de tiempo.')
+        print('')
+        print('      filename_vwn = \'vwn1000_jan50_dec19.nc\'')
+        print('')
+        print('      data_vwn = clima_anom.read_netcdf(filename_vwn)')
+        print('')
+        print('      result = clima_anom.closest_point(data_vwn[\'vwnd\'],data_vwn[\'lat\'],data_vwn[\'lon\'],-21.5,201.0)')
+        print('')
+        print('      Data shape     :  (840, 73, 144)')
+        print('      Latitude shape :  (73,)')
+        print('      Longitude shape:  (144,)')
+        print('')
+        print('Generando la salida:')
+        print('')
+        print('      Id, Latitud mas cercana :  [45] -22.5')
+        print('      Id, Longitud mas cercana:  [80] 200.0')
 
     elif funtion_name == 'extract_area':
-    	print('')
-    	print_bold('extract_area')
-    	print('')
-    	print('clima_anom.extract_area(data,lat,lon,lat_min,lat_max,lon_min,lon_max)')
-    	print('')
-    	print('Ingrensando datos de lat minima y maxima junto con lon minima y maxima puede extraerse los datos del area de interes de una variable.')
-    	print('')
-    	print('      filename_vwn = \'vwn1000_jan50_dec19.nc\'')
-    	print('')
-    	print('      data_vwn = clima_anom.read_netcdf(filename_vwn)')
-    	print('')
-    	print('      data_out,lat_out,lon_out = clima_anom.extract_area(data_vwn[\'vwnd\'],data_vwn[\'lat\'],data_vwn[\'lon\'],-30,0,278,325)')
-    	print('')
-    	print('Generando la salida:')
-    	print('')
-    	print('      Data shape     :  (840, 73, 144)')
-    	print('      Latitude shape :  (73,)')
-    	print('      Longitude shape:  (144,)')
-    	print('')
-    	print('      Interest Area dimension:  (840, 13, 20)')
+        print('')
+        print_bold('extract_area')
+        print('')
+        print('clima_anom.extract_area(data,lat,lon,lat_min,lat_max,lon_min,lon_max)')
+        print('')
+        print('Ingrensando datos de lat minima y maxima junto con lon minima y maxima puede extraerse los datos del area de interes de una variable.')
+        print('')
+        print('      filename_vwn = \'vwn1000_jan50_dec19.nc\'')
+        print('')
+        print('      data_vwn = clima_anom.read_netcdf(filename_vwn)')
+        print('')
+        print('      data_out,lat_out,lon_out = clima_anom.extract_area(data_vwn[\'vwnd\'],data_vwn[\'lat\'],data_vwn[\'lon\'],-30,0,278,325)')
+        print('')
+        print('Generando la salida:')
+        print('')
+        print('      Data shape     :  (840, 73, 144)')
+        print('      Latitude shape :  (73,)')
+        print('      Longitude shape:  (144,)')
+        print('')
+        print('      Interest Area dimension:  (840, 13, 20)')
 
     elif funtion_name == 'MAE':
         print('')
@@ -283,18 +317,28 @@ def help_funtion(funtion_name='blank'):
         print('      hgt = data[\'var\']')
         print('')
         print('      hgt_shape = clima_anom.extract_shapefile(\'../shp/continent.shp\',hgt,lat,lon)')
+        print('')
         
     else:
-    	print('')
-    	print_bold('ERROR')
-    	print('')
-    	print('Esa funcion no existe, las funciones son:')
-    	print('read_netcdf')
-    	print('clima_anom')
-    	print('season')
-    	print('correlation')
-    	print('closest_point')
-    	print('extract_area')
+        print('')
+        print_bold('ERROR')
+        print('')
+        print('Esa funcion no existe, las funciones son:')
+        print('read_netcdf')
+        print('clima_anom')
+        print('climatology')
+        print('anomalies')
+        print('season')
+        print('correlation')
+        print('closest_point')
+        print('extract_area')
+        print('MAE')
+        print('RMSE')
+        print('BIAS')
+        print('create_netcdf')
+        print('remove_continent_ocean')
+        print('extract_shapefile')
+        print('')
 
 def read_netcdf(filename,show=1):
     data = Dataset(filename,mode = 'r')
@@ -411,6 +455,45 @@ def clima_anom(var_in):
         var_name = 0
         
         return var_name
+    
+def climatology(var_in):
+    num_anos,len_lat,len_lon = np.shape(var_in['jan']['data'])
+    var_out = np.zeros([12,len_lat,len_lon])
+    
+    var_out[0,:,:] = var_in['jan']['clim']
+    var_out[1,:,:] = var_in['feb']['clim']
+    var_out[2,:,:] = var_in['mar']['clim']
+    var_out[3,:,:] = var_in['apr']['clim']
+    var_out[4,:,:] = var_in['may']['clim']
+    var_out[5,:,:] = var_in['jun']['clim']
+    var_out[6,:,:] = var_in['jul']['clim']
+    var_out[7,:,:] = var_in['ago']['clim']
+    var_out[8,:,:] = var_in['sep']['clim']
+    var_out[9,:,:] = var_in['oct']['clim']
+    var_out[10,:,:] = var_in['nov']['clim']
+    var_out[11,:,:] = var_in['dec']['clim']
+        
+    return var_out
+
+def anomalies(var_in):
+    num_anos,len_lat,len_lon = np.shape(var_in['jan']['data'])
+    var_out = np.zeros([12*num_anos,len_lat,len_lon])
+    
+    for i in range(num_anos):
+        var_out[12*i,:,:] = var_in['jan']['anom'][i,:,:]
+        var_out[12*i+1,:,:] = var_in['feb']['anom'][i,:,:]
+        var_out[12*i+2,:,:] = var_in['mar']['anom'][i,:,:]
+        var_out[12*i+3,:,:] = var_in['apr']['anom'][i,:,:]
+        var_out[12*i+4,:,:] = var_in['may']['anom'][i,:,:]
+        var_out[12*i+5,:,:] = var_in['jun']['anom'][i,:,:]
+        var_out[12*i+6,:,:] = var_in['jul']['anom'][i,:,:]
+        var_out[12*i+7,:,:] = var_in['ago']['anom'][i,:,:]
+        var_out[12*i+8,:,:] = var_in['sep']['anom'][i,:,:]
+        var_out[12*i+9,:,:] = var_in['oct']['anom'][i,:,:]
+        var_out[12*i+10,:,:] = var_in['nov']['anom'][i,:,:]
+        var_out[12*i+11,:,:] = var_in['dec']['anom'][i,:,:]
+        
+    return var_out
 
 def season(var_in,season=1):
     

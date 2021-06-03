@@ -15,16 +15,6 @@ Requirements
 How to install requirements with pip
 
     $pip install -r requirements.txt
-    
-[numpy](https://numpy.org/)
-
-[netCDF4](https://pypi.org/project/netCDF4/)
-
-[matplotlib](https://pypi.org/project/matplotlib/)
-
-[cartopy](https://pypi.org/project/Cartopy/)
-
-[pyshp](https://pypi.org/project/pyshp/)
 
 Pip install
 ------------

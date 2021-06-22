@@ -17,6 +17,6 @@ url='https://github.com/mhacarthur/clima-anom',
 author='Cesar Arturo Sanchez Pena',
 author_email='arturo66cta@gmail.com',
 license='MIT',
-packages=['clima-anom'],
+packages=['clima_anom'],
 keywords=['climatology','anomalies','monthly','correlation','netcdf','closest','MAE','RMSE','BIAS','DiasDoAno','Createnetcdf','remove continent','remove ocean','shapefile remove'],
 zip_safe=False)

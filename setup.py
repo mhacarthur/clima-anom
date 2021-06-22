@@ -8,12 +8,12 @@ HERE = pathlib.Path(__file__).parent.resolve()
 LONG_DESCRIPTION = (HERE / 'README.md').read_text(encoding='utf-8')
 
 setup(
-name='clima-anom',
-version='0.5.5',
+name='clima_anom',
+version='0.5.6',
 description='Obtain the climatology and anomalies only for monthly data.',
 long_description=LONG_DESCRIPTION,
 long_description_content_type='text/markdown',
-url='https://github.com/mhacarthur/clima_anom',
+url='https://github.com/mhacarthur/clima-anom',
 author='Cesar Arturo Sanchez Pena',
 author_email='arturo66cta@gmail.com',
 license='MIT',

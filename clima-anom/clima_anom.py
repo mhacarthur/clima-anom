@@ -316,13 +316,8 @@ def help_funtion(funtion_name='blank'):
         print('')
         print('This funtion extract a variable information using a shapefile, but keeping the same spatial dimensions.')
         print('')
-        print('      data_dir = \'../data/Hgt_500hPa_Anomalies_Jan80_Dec83.nc\'')
-        print('      data = ca.read_netcdf(data_dir,2)')
-        print('      lat = data[\'lat\']')
-        print('      lon = data[\'lon\']')
-        print('      hgt = data[\'var\']')
-        print('')
-        print('      hgt_shape = clima_anom.extract_shapefile(\'../shp/continent.shp\',hgt,lat,lon)')
+        print('      shapefile_dir = \'../shp/continent.shp\'')
+        print('      GLM_continent = extract_shapefile(shapefile_dir,GLM,lat,lon)')
         print('')
         
     else:
@@ -1107,12 +1102,13 @@ def remove_continent_ocean(var_in,latitude,longitude,remove='continent'):
         
         return var_out
 
-def extract_shapefile(shapefile_dir,data_in,lat_in,lon_in):
+def extract_shapefile(shapefile_dir,data_in,lat_in,lon_in,shp_id=0):
     
     r = shapefile.Reader(shapefile_dir)
 
     shapes = r.shapes()
-    polygon = shape(shapes[0]) 
+    print('Shapes ID len: ',len(shapes))
+    polygon = shape(shapes[shp_id]) 
     
     data_out = np.copy(data_in)
     

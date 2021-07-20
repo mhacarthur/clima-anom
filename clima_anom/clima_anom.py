@@ -1,7 +1,7 @@
 import netCDF4
 from netCDF4 import Dataset
 import numpy as np
-import calendar 
+import calendar
 from math import cos, asin, sqrt
 import time as time_b
 import datetime
@@ -43,6 +43,7 @@ def help_funtion(funtion_name='blank'):
         print('DiasDoAno')
         print('create_netcdf')
         print('remove_continent_ocean')
+        print('extract_shapefile')
         print('')
         print('Ejemplo: help_funtion(\'season\')')
         
@@ -586,12 +587,15 @@ def correlation(data_1,data_2):
     anos,len_lat,len_lon = np.shape(data_1)
     
     corr = np.zeros([len_lat,len_lon])
-
+    
     for i in range(len_lat):
         for j in range(len_lon):
-            pearson = np.corrcoef(data_1[:,i,j],data_2[:,i,j])
-            corr[i,j] = pearson[0,1]
-   
+            
+            nan_bnd = (np.argwhere(~np.isnan(data_1[:,i,j])))[:,0]
+            pearson = np.corrcoef(data_1[:,i,j][nan_bnd],data_2[:,i,j][nan_bnd])
+            corr_temp = pearson[0,1]
+            corr[i,j] = corr_temp
+            
     return corr
 
 def closest_point(data,lat,lon,lat_ref,lon_ref):

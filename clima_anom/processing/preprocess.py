@@ -2,6 +2,30 @@
 import numpy as np
 
 def data_dictionary(var_in):
+    """
+    DESCRIPTION
+    Convert monthly data innput in pandas DataFrame with three heads: 
+    1. data
+    2. clim
+    3. anom
+
+    all related to monthly data
+
+    var_dictionary = ca.clima_anom(var_input)
+
+    :param var_input: float
+
+    EXAMPLE
+    >>> namefile = '/home/user/Data/Hgt_1000hPa_Dec49_Feb20.nc'
+    >>> data = ca.read_netcdf(data_dir,1)
+    
+    >>> hgt = data['hgt'][:,0,:,:]
+    >>> hgt_dictionary = ca.clima_anom(hgt)
+
+    To obtain the climatology and anomalies for each july
+    >>> jul_anom = hgt_dictionary['jul']['anom']
+    >>> jul_clim = hgt_dictionary['jul']['clim']
+    """
 
     len_in = len(np.shape(var_in))
 
@@ -79,6 +103,20 @@ def data_dictionary(var_in):
         return var_name
 
 def climatology(var_in):
+    """
+    DESCRIPTION
+    Create a 3-dimension matrix for monthly climatology
+
+    EXAMPLE
+    >>> namefile = '/home/user/Data/Hgt_1000hPa_Dec49_Feb20.nc'
+    >>> data = ca.read_netcdf(data_dir,1)
+    
+    >>> hgt = data['hgt'][:,0,:,:]
+    >>> hgt_dictionary = ca.clima_anom(hgt)
+
+    >>> hgt_climatology = ca.climatology(hgt_dictionary)
+    """
+
     num_anos,len_lat,len_lon = np.shape(var_in['jan']['data'])
     var_out = np.zeros([12,len_lat,len_lon])
     
@@ -98,6 +136,20 @@ def climatology(var_in):
     return var_out
 
 def anomalies(var_in):
+    """
+    DESCRIPTION
+    Create a 3-dimension matrix for monthly anomalies
+
+    EXAMPLE
+    >>> namefile = '/home/user/Data/Hgt_1000hPa_Dec49_Feb20.nc'
+    >>> data = ca.read_netcdf(data_dir,1)
+    
+    >>> hgt = data['hgt'][:,0,:,:]
+    >>> hgt_dictionary = ca.clima_anom(hgt)
+
+    >>> hgt_anomalies = ca.anomalies(hgt_dictionary)
+    """
+
     num_anos,len_lat,len_lon = np.shape(var_in['jan']['data'])
     var_out = np.zeros([12*num_anos,len_lat,len_lon])
     
@@ -118,7 +170,34 @@ def anomalies(var_in):
     return var_out
 
 def season(var_in,season=1):
+    """
+    DESCRIPTION
+    This function separates the data into stations, creating a 3d matrix 
+    of anomalies and climatologies.
+
+    A funtion input is a pandas Data Frame and one Id,
+
+    climatology, anomaly = ca.season(data_input,id)
+
+    Where id represents the season:
+    1: summer
+    2: autumn
+    3: winter
+    4: spring
+
+    EXAMPLE
+    >>> namefile = '/home/user/Data/Hgt_1000hPa_Dec49_Feb20.nc'
+    >>> data = ca.read_netcdf(data_dir,1)
     
+    >>> hgt = data['hgt'][:,0,:,:]
+    >>> hgt_dictionary = ca.clima_anom(hgt)
+
+    >>> clima_summer, anom_summer = ca.season(hgt_dictionary,1)
+    >>> clima_autumn, anom_autumn = ca.season(hgt_dictionary,2)
+    >>> clima_winter, anom_winter = ca.season(hgt_dictionary,3)
+    >>> clima_spring, anom_spring = ca.season(hgt_dictionary,4)
+    """
+
     anos,len_lat,len_lon = np.shape(var_in['jan']['data'])
     
     if season == 1:

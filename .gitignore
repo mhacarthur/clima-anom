@@ -4,4 +4,4 @@ test/
 data/
 __pycache__
 *.pyc
-
+clima_anom/test.ipynb

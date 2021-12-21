@@ -9,12 +9,35 @@ from datetime import timedelta
 from dateutil.rrule import rrule, YEARLY, MONTHLY, WEEKLY, DAILY, HOURLY, MINUTELY
 
 def read_netcdf(filename,show=1):
-    
     """
-    read netcdf funtion
-    
-    for read netcdf file
+    DESCRIPTION
+    Function to read netcdf files. 
 
+    ca.read_netcdf(namefile,id)
+    
+    The function needs two inputs. Namefile is the name of the netcdf file and 
+    id is the descriptor number to show the different levels of details of the 
+    variables inside the netcdf.
+
+    :param namefile: string 
+    :param id: integer
+
+    ID LEVELS
+    * ca.read_netcdf(data_dir,3)
+    Shows all the information contained about the variables
+
+    * ca.read_netcdf(data_dir,2)
+    Shows name of variables and its shapes
+
+    * ca.read_netcdf(data_dir,1)
+    Shows only the number of variables
+
+    * ca.read_netcdf(data_dir,0)
+    Shows nothing
+    
+    EXAMPLE
+    >>> namefile = '/home/user/Data/Hgt_1000hPa_Dec49_Feb20.nc'
+    >>> data = ca.read_netcdf(data_dir,1)
     """
 
     data = Dataset(filename,mode = 'r')
@@ -37,13 +60,23 @@ def read_netcdf(filename,show=1):
     for i in range(var_len):
         dict_out[var_list[i]] = globals()[var_list[i]]
 
-    if show == 1:
+    if show == 0:
+        pass
+
+    elif show == 1:
         print('Number of variables: ',var_len)
-    if show == 2:
+
+    elif show == 2:
         for i in range(var_len):
             print(var_list[i],':',np.shape(globals()[var_list[i]]))
-    if show == 3:
+
+    elif show == 3:
         print(data.variables)
+
+    else:
+        print(f'Error: Id value {show} doesn\'t exits')
+        print('Try with Id: 0, 1, 2 or 3')
+        return None
     
     if 'time' in var_total:
         time_0 = data.variables['time'][:]
@@ -57,7 +90,54 @@ def read_netcdf(filename,show=1):
     return dict_out
 
 def create_netcdf(info,latitude,longitude,data):
-    
+    """
+    DESCRIPTION
+    Funtion for export data array to netcdf format
+
+    ca.create_netcdf(info,latitude,longitude,var_input)
+
+    This funtion uses four inputs, one dictionary called info and three variables,
+    which are:
+
+    :param latitude: float 
+    :param longitude: float
+    :param var_input: float
+
+    And the info:
+
+    info = {'file': filename_out, # filename for netcdf file
+            'title': description, # netcdf title or little descriptionn
+            'year_start':y_s,'month_start':m_s,'day_start':d_s,
+            'hour_start':h_s,'minute_start':m_s, # time start 
+            'year_end':y_e,'month_end':m_e,'day_end':d_e,
+            'hour_end':h_e,'minute_end':m_e, # time end
+            'time_frequency': frequency, # Monthly, Daily, Hourly, Minutely
+            'time_interval':time_int, # time interval
+            'var_name': var_name, # variable short name
+            'var_units': var_units} # variable units
+
+    EXAMPLE
+    >>> namefile = '/home/user/Data/Hgt_1000hPa_Dec49_Feb20.nc'
+    >>> data = ca.read_netcdf(data_dir,1)
+
+    >>> latitude = data['lat']
+    >>> longitude = data['lon']
+    >>> hgt = data['hgt'][:,0,:,:]
+
+    >>> info = {
+        'file': '/home/user/Data/Hgt_1000hPa_Dec49_Feb20_new.nc',
+        'title': 'Geopotential Height 1000 hPa', 
+        'year_start':1949, 'month_start':12, 'day_start':1, 
+        'hour_start':0, 'minute_start':0, 
+        'year_end':2020, 'month_end':2, 'day_end':1, 
+        'hour_end':23, 'minute_end':59, 
+        'time_frequency': 'Monthly', 
+        'time_interval':1,
+        'var_name': 'hgt',
+        'var_units': 'hPa'} 
+
+    >>> ca.create_netcdf(info,latitude,longitude,hgt)
+    """
     if info['year_start'] > info['year_end']:
         print('ERROR: Year Start cannot be greater than Year End')
         dates = 0
@@ -107,14 +187,6 @@ def create_netcdf(info,latitude,longitude,data):
         return dates
     
     tiempo = np.zeros([len(dates)])
-    
-# ===================================================
-#    GENERA ERRORES     
-#    for i in range(12):  #No se porque 12
-#    for i in range(len(dates)):
-#        dtt = dates[i].timetuple() 
-#        stamp = time_b.mktime(dtt)
-#        tiempo[i] = int(stamp)
 
     tiempo = date2num(dates, units='days since '+str(info['year_start'])+'-'+str(info['month_start'])+'-'+str(info['day_start']))
 

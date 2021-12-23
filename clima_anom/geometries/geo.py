@@ -11,6 +11,39 @@ from shapely.ops import unary_union
 from shapely.prepared import prep
 
 def remove_continent_ocean(var_in,latitude,longitude,remove='continent'):
+    '''
+    DESCRIPTION
+    Remove continent or ocean for input data, the remove layer aim is replaced 
+    with NaN values.
+
+    PARAMETERS
+    :param var_in: float
+    :param latitude: float
+    :param longitude: float
+    :param remove: string
+
+    This funtion needs a principal data input that is var_in (3d numpy-array), 
+    latitude (1d numpy-array), longitude (1d numpy-array) and remove (string).
+    Where remove is only a number to represent the extraction objective.
+    
+    remove options:
+    * for remove continent: remove = 'continent'
+    * for remove ocean    : remove = 'ocean'
+
+    EXAMPLE
+    Read and define hgt, latitude and longitude:
+    >>> data_dir = '/home/user/Data/Hgt_1000hPa_Dec49_Feb20.nc'
+    >>> data = ca.read_netcdf(data_dir,1)
+    >>> hgt = data['hgt'][:,0,:,:]
+    >>> lat = data['latitude']
+    >>> lon = data['longitude']
+
+    Extract continent
+    >>> hgt_without_continent = ca.remove_continent_ocean(hgt,lat,lon,'continent')
+    
+    Extract ocean
+    >>> hgt_without_ocean = ca.remove_continent_ocean(hgt,lat,lon,'ocean')
+    '''
     
     land_shp_fname = shpreader.natural_earth(resolution='50m',category='physical', name='land')
 
@@ -110,6 +143,40 @@ def remove_continent_ocean(var_in,latitude,longitude,remove='continent'):
         return var_out
 
 def extract_shapefile(shapefile_dir,data_in,lat_in,lon_in,shp_id=0):
+    '''
+    DESCRIPTION
+    Extract data into a shapefile and input data, where the output is only 
+    the intersection.
+
+    PARAMETERS
+    :param shapefile_dir: string
+    :param data_in: float
+    :param lat_in: float
+    :param lon_in: float
+    :param shp_id: int
+
+    This funtion needs a shapefile directory define with a variable shapefile_dir
+    (string), the variable for extract define as data_in (3d numpy-array), 
+    latitude (1d numpy-array), longitude (1d numpy-array) and one identifier
+    for specific layer number into the shapefile, shp_id (integer).
+
+    shp_id options:
+    this parameter is the number of layers into shapefile file, for default 
+    the shp_id is equal zero.
+
+    EXAMPLE
+    Read a define hgt, latitude and longitude:
+    >>> data_dir = '/home/user/Data/Hgt_1000hPa_Dec49_Feb20.nc'
+    >>> data_in = ca.read_netcdf(data_dir,1)
+    >>> hgt = data['hgt'][:,0,:,:]
+    >>> lat = data['latitude']
+    >>> lon = data['longitude']
+
+    Extract shapefile for hgt:
+    >>> shapefile_dir = '/shapes/continent.shp'
+    >>> shp_id = 0
+    >>> hgt_intersection = ca.extract_shapefile(shapefile_dir,hgt,lat,lon,shp_id)
+    '''
     
     r = shapefile.Reader(shapefile_dir)
 

@@ -4,25 +4,29 @@ import numpy as np
 def data_dictionary(var_in):
     """
     DESCRIPTION
-    Convert monthly data innput in pandas DataFrame with three heads: 
-    1. data
-    2. clim
-    3. anom
-
-    all related to monthly data
-
-    var_dictionary = ca.clima_anom(var_input)
-
+    Convert monthly data input in pandas DataFrame dictionary. 
+    
+    PARAMETERS
     :param var_input: float
 
+    This funtion only needs the data input (3d numpy-array), where this data is 
+    define as [time, latitude, longitude]. 
+
+    The DataFrame output it composed for three levels:
+    1. data (monthly original data input)
+    2. clim (monthly climatologies)
+    3. anom (monthly anomalies)
+
     EXAMPLE
-    >>> namefile = '/home/user/Data/Hgt_1000hPa_Dec49_Feb20.nc'
+    Read and define hgt:
+    >>> data_dir = '/home/user/Data/Hgt_1000hPa_Dec49_Feb20.nc'
     >>> data = ca.read_netcdf(data_dir,1)
-    
     >>> hgt = data['hgt'][:,0,:,:]
+
+    Create a dictionary
     >>> hgt_dictionary = ca.clima_anom(hgt)
 
-    To obtain the climatology and anomalies for each july
+    Obtain the climatology and anomalies for each july
     >>> jul_anom = hgt_dictionary['jul']['anom']
     >>> jul_clim = hgt_dictionary['jul']['clim']
     """
@@ -105,15 +109,23 @@ def data_dictionary(var_in):
 def climatology(var_in):
     """
     DESCRIPTION
-    Create a 3-dimension matrix for monthly climatology
+    Create a for monthly climatology.
+
+    PARAMETERS
+    :param var_in: DataFrame
+
+    This funtion uses the output to funtion ca.clima_anom.
 
     EXAMPLE
-    >>> namefile = '/home/user/Data/Hgt_1000hPa_Dec49_Feb20.nc'
+    Read and define hgt:
+    >>> data_dir = '/home/user/Data/Hgt_1000hPa_Dec49_Feb20.nc'
     >>> data = ca.read_netcdf(data_dir,1)
-    
     >>> hgt = data['hgt'][:,0,:,:]
+
+    Create a hgt dictionary
     >>> hgt_dictionary = ca.clima_anom(hgt)
 
+    Obtain the monthly climatologies matrix
     >>> hgt_climatology = ca.climatology(hgt_dictionary)
     """
 
@@ -138,16 +150,24 @@ def climatology(var_in):
 def anomalies(var_in):
     """
     DESCRIPTION
-    Create a 3-dimension matrix for monthly anomalies
+    Create a for monthly anomaly.
+
+    PARAMETERS
+    :param var_in: DataFrame
+
+    This funtion uses the output to funtion ca.clima_anom.
 
     EXAMPLE
-    >>> namefile = '/home/user/Data/Hgt_1000hPa_Dec49_Feb20.nc'
+    Read and define hgt:
+    >>> data_dir = '/home/user/Data/Hgt_1000hPa_Dec49_Feb20.nc'
     >>> data = ca.read_netcdf(data_dir,1)
-    
     >>> hgt = data['hgt'][:,0,:,:]
+
+    Create a hgt dictionary
     >>> hgt_dictionary = ca.clima_anom(hgt)
 
-    >>> hgt_anomalies = ca.anomalies(hgt_dictionary)
+    Obtain the monthly anomalies matrix
+    >>> hgt_climatology = ca.anomalies(hgt_dictionary)
     """
 
     num_anos,len_lat,len_lon = np.shape(var_in['jan']['data'])
@@ -172,26 +192,32 @@ def anomalies(var_in):
 def season(var_in,season=1):
     """
     DESCRIPTION
-    This function separates the data into stations, creating a 3d matrix 
-    of anomalies and climatologies.
+    This function separates the data into seasons and create two ouput arrays, 
+    one of climatologies and another of anomalies.
 
-    A funtion input is a pandas Data Frame and one Id,
+    PARAMETERS
+    :param var_in: DataFrame
+    :param season: integer
 
-    climatology, anomaly = ca.season(data_input,id)
+    This funtion uses the output to funtion ca.clima_anom and one indicator 
+    for the specific season define as season.
 
-    Where id represents the season:
-    1: summer
-    2: autumn
-    3: winter
-    4: spring
+    season options:
+    * for summer season = 1
+    * for autumn season = 2
+    * for winter season = 3
+    * for spring season = 4
 
     EXAMPLE
-    >>> namefile = '/home/user/Data/Hgt_1000hPa_Dec49_Feb20.nc'
+    Read and define hgt:
+    >>> data_dir = '/home/user/Data/Hgt_1000hPa_Dec49_Feb20.nc'
     >>> data = ca.read_netcdf(data_dir,1)
-    
     >>> hgt = data['hgt'][:,0,:,:]
+    
+    Create a hgt dictionary
     >>> hgt_dictionary = ca.clima_anom(hgt)
 
+    Obtain the climatologies and anomalies for each season
     >>> clima_summer, anom_summer = ca.season(hgt_dictionary,1)
     >>> clima_autumn, anom_autumn = ca.season(hgt_dictionary,2)
     >>> clima_winter, anom_winter = ca.season(hgt_dictionary,3)

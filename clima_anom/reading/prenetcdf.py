@@ -11,18 +11,17 @@ from dateutil.rrule import rrule, YEARLY, MONTHLY, WEEKLY, DAILY, HOURLY, MINUTE
 def read_netcdf(filename,show=1):
     """
     DESCRIPTION
-    Function to read netcdf files. 
-
-    ca.read_netcdf(namefile,id)
+    Simple function to read netcdf files.  
     
-    The function needs two inputs. Namefile is the name of the netcdf file and 
-    id is the descriptor number to show the different levels of details of the 
-    variables inside the netcdf.
-
+    PARAMETERS
     :param namefile: string 
     :param id: integer
 
-    ID LEVELS
+    The namefile is the name of the netcdf file and id is the descriptor 
+    number to show the different levels of details of the variables inside 
+    the netcdf.
+
+    id levels:
     * ca.read_netcdf(data_dir,3)
     Shows all the information contained about the variables
 
@@ -36,8 +35,12 @@ def read_netcdf(filename,show=1):
     Shows nothing
     
     EXAMPLE
-    >>> namefile = '/home/user/Data/Hgt_1000hPa_Dec49_Feb20.nc'
+    Read and define hgt, latitude and longitude:
+    >>> data_dir = '/home/user/Data/Hgt_1000hPa_Dec49_Feb20.nc'
     >>> data = ca.read_netcdf(data_dir,1)
+    >>> hgt = data['hgt'][:,0,:,:]
+    >>> lat = data['latitude']
+    >>> lon = data['longitude']
     """
 
     data = Dataset(filename,mode = 'r')
@@ -89,22 +92,22 @@ def read_netcdf(filename,show=1):
     
     return dict_out
 
-def create_netcdf(info,latitude,longitude,data):
+def create_netcdf(info,data,latitude,longitude):
     """
     DESCRIPTION
-    Funtion for export data array to netcdf format
+    Funtion for export data numpy array to netcdf format.
 
-    ca.create_netcdf(info,latitude,longitude,var_input)
-
-    This funtion uses four inputs, one dictionary called info and three variables,
-    which are:
-
+    PARAMETERS
     :param latitude: float 
     :param longitude: float
     :param var_input: float
 
-    And the info:
+    This funtion uses four inputs. First an info dictionary called info that
+    contains the principal information about the netcdf file what will be 
+    created, the data input matrix (3d numpy-array), latitude (1d numpy-array) 
+    and longitude (1d numpy-array).
 
+    The info is define as:
     info = {'file': filename_out, # filename for netcdf file
             'title': description, # netcdf title or little descriptionn
             'year_start':y_s,'month_start':m_s,'day_start':d_s,
@@ -112,21 +115,39 @@ def create_netcdf(info,latitude,longitude,data):
             'year_end':y_e,'month_end':m_e,'day_end':d_e,
             'hour_end':h_e,'minute_end':m_e, # time end
             'time_frequency': frequency, # Monthly, Daily, Hourly, Minutely
-            'time_interval':time_int, # time interval
+            'time_interval':time_int, # time step interval
             'var_name': var_name, # variable short name
             'var_units': var_units} # variable units
 
+    Where:
+    :param file: string
+    :param title: string
+    :param year_start month_start day_start hour_start minute_start: integer
+    :param year_end month_end day_end hour_end minute_end: integer
+    :param time_frequency: string
+    :param time_interval: integer
+    :param var_name: sring
+    :param var_units: string
+
+    time_frequency options:
+    This parameter define the time resolution of data
+    * 'time_frequency': Monthly
+    * 'time_frequency': Daily
+    * 'time_frequency': Hourly
+    * 'time_frequency': Minutely
+
     EXAMPLE
-    >>> namefile = '/home/user/Data/Hgt_1000hPa_Dec49_Feb20.nc'
+    Read and define hgt, latitude and longitude:
+    >>> data_dir = '/home/user/Data/Hgt_1000hPa_Dec49_Feb20.nc'
     >>> data = ca.read_netcdf(data_dir,1)
-
-    >>> latitude = data['lat']
-    >>> longitude = data['lon']
     >>> hgt = data['hgt'][:,0,:,:]
+    >>> lat = data['latitude']
+    >>> lon = data['longitude']
 
+    Define info for the new netcdf about hgt:
     >>> info = {
         'file': '/home/user/Data/Hgt_1000hPa_Dec49_Feb20_new.nc',
-        'title': 'Geopotential Height 1000 hPa', 
+        'title': 'Monthly Geopotential Height 1000 hPa', 
         'year_start':1949, 'month_start':12, 'day_start':1, 
         'hour_start':0, 'minute_start':0, 
         'year_end':2020, 'month_end':2, 'day_end':1, 
@@ -136,8 +157,10 @@ def create_netcdf(info,latitude,longitude,data):
         'var_name': 'hgt',
         'var_units': 'hPa'} 
 
-    >>> ca.create_netcdf(info,latitude,longitude,hgt)
+    Create netcdf file:
+    >>> ca.create_netcdf(info,hgt,lat,lon)
     """
+    
     if info['year_start'] > info['year_end']:
         print('ERROR: Year Start cannot be greater than Year End')
         dates = 0

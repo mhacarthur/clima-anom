@@ -2,6 +2,29 @@
 import numpy as np
 
 def correlation(data_1,data_2):
+    '''
+    DESCRIPTION
+    Computes the matrix correlation into two time series
+
+    PARAMETERS
+    :param data_1: float
+    :param data_2: float
+
+    This funtion use two time series (1d numpy-array)
+
+    EXAMPLE
+    Read and define hgt:
+    >>> data_dir = '/home/user/Data/Hgt_1000hPa_Dec49_Feb20.nc'
+    >>> data = ca.read_netcdf(data_dir,1)
+    >>> hgt = data['hgt'][:,0,:,:]
+
+    Define two series inside hgt
+    >>> serie_1 = hgt[:,10,12]
+    >>> serie_2 = hgt[:,5,8]
+
+    Obtain the correlation into series
+    >>> serie_correlation = ca.correlation(serie_1,serie_2)
+    '''
     
     anos,len_lat,len_lon = np.shape(data_1)
     
@@ -18,6 +41,16 @@ def correlation(data_1,data_2):
     return corr
 
 def MAE(data1,data2):
+    '''
+    DESCRIPTION
+    Obtain the MAE into two 3d arrays
+
+    PARAMETERS
+    :param data1: float
+    :param data2: float
+
+    Where data1 and data2 are 3d numpy array
+    '''
     
     if data1.ndim != 3:
         print('')
@@ -63,6 +96,16 @@ def MAE(data1,data2):
     return MAE
 
 def RMSE(data1,data2):
+    '''
+    DESCRIPTION
+    Obtain the RMSE into two 3d arrays
+
+    PARAMETERS
+    :param data1: float
+    :param data2: float
+
+    Where data1 and data2 are 3d numpy array
+    '''
     
     if data1.ndim != 3:
         print('')
@@ -106,6 +149,16 @@ def RMSE(data1,data2):
     return RMSE 
 
 def BIAS(data1,data2):
+    '''
+    DESCRIPTION
+    Obtain the BIAS into two 3d arrays
+
+    PARAMETERS
+    :param data1: float
+    :param data2: float
+
+    Where data1 and data2 are 3d numpy array
+    '''
     
     if data1.ndim != 3:
         print('')
@@ -149,6 +202,16 @@ def BIAS(data1,data2):
     return BIAS
 
 def RBIAS(data1,data2):
+    '''
+    DESCRIPTION
+    Obtain the RBIAS into two 3d arrays
+
+    PARAMETERS
+    :param data1: float
+    :param data2: float
+
+    Where data1 and data2 are 3d numpy array
+    '''
     
     if data1.ndim != 3:
         print('')

@@ -9,13 +9,6 @@ Overview
 --------
 This code provides experimental and simples tools for the aid of different operations on climate data, mainly obtaining climatologies and anomalies information, in addition to other operations such as data extraction from only continent, ocean or a shapefile.
 
-Requirements
-------------
-
-How to install requirements with pip
-
-    $pip install -r requirements.txt
-
 Pip install
 ------------
     $pip install clima-anom
@@ -33,42 +26,12 @@ first clone the package then inside
 and install
 
     $pip install .
-    
-Content
--------
-List of funtions
 
-	help_funtion
-	read_netcdf
-	clima_anom
-	climatology
-	anomalies
-	season
-	correlation
-	closest_point
-	MAE
-	RMSE
-	BIAS
-	create_netcdf
-	remove_continent_ocean
-	extract_shapefile
-
-Help
-----
-For obtain a list of funtions:
-
-	import clima_anom as ca
-	ca.help_funtion()
-
-Help for specific funtion:
-
-	ca.help_funtion('read_netcdf')
-	
 Data
 ----
-The data use for examples correspond to NCEP/NCAR Reanalysis 1
+The data use for examples is in directory data. For complete data see:
 
-[Reanalysis Data](https://psl.noaa.gov/data/gridded/data.ncep.reanalysis.pressure.html)
+[TRMM 3B42-v7 daily](https://disc.gsfc.nasa.gov/datasets/TRMM_3B42_Daily_7/summary)
 
 
 Figures

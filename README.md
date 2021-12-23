@@ -73,17 +73,17 @@ The data use for examples correspond to NCEP/NCAR Reanalysis 1
 
 Figures
 ----
-Montlhy climatology for hgt 500 hPa
+Montlhy climatology for rainfall
 <div align="center">
   <img src="https://raw.githubusercontent.com/mhacarthur/clima_anom/master/fig/Monthly_Climatology.png" alt="Monthly_Climatology" />
 </div>
 
-Sesonal climatology for hgt 500 hPa
+Sesonal climatology for rainfall
 <div align="center">
   <img src="https://raw.githubusercontent.com/mhacarthur/clima_anom/master/fig/Monthly_Seasonal.png" alt="Seasonal Climatology" />
 </div>
 
-Remove a specific ocean or continent for uwnd 500 hPa
+Remove a specific ocean or continent for rainfall
 <div align="center">
   <img src="https://raw.githubusercontent.com/mhacarthur/clima_anom/master/fig/Wind_remove_continent_ocean.png" alt="Wind remove mask" />
 </div>

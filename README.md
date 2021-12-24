@@ -7,7 +7,7 @@ Climatology and Anomalies in Python
 
 Overview
 --------
-This code provides experimental and simples tools for the aid of different operations on climate data, mainly obtaining climatologies and anomalies information, in addition to other operations such as data extraction from only continent, ocean or a shapefile.
+This code provides experimental and simples tools for differents operations on climate data, mainly obtaining climatologies and anomalies values, in addition to others operations such as data extraction from continent, ocean or a shapefile.
 
 Pip install
 ------------

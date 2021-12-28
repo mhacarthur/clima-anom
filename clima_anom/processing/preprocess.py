@@ -24,7 +24,7 @@ def data_dictionary(var_in):
     >>> hgt = data['hgt'][:,0,:,:]
 
     Create a dictionary
-    >>> hgt_dictionary = ca.clima_anom(hgt)
+    >>> hgt_dictionary = ca.data_dictionary(hgt)
 
     Obtain the climatology and anomalies for each july
     >>> jul_anom = hgt_dictionary['jul']['anom']
@@ -114,7 +114,7 @@ def climatology(var_in):
     PARAMETERS
     :param var_in: DataFrame
 
-    This function uses the output to ca.clima_anom.
+    This function uses the output to ca.data_dictionary.
 
     EXAMPLE
     Read and define hgt:
@@ -123,7 +123,7 @@ def climatology(var_in):
     >>> hgt = data['hgt'][:,0,:,:]
 
     Create a hgt dictionary
-    >>> hgt_dictionary = ca.clima_anom(hgt)
+    >>> hgt_dictionary = ca.data_dictionary(hgt)
 
     Obtain the monthly climatologies matrix
     >>> hgt_climatology = ca.climatology(hgt_dictionary)
@@ -155,7 +155,7 @@ def anomalies(var_in):
     PARAMETERS
     :param var_in: DataFrame
 
-    This function uses the output to ca.clima_anom.
+    This function uses the output to ca.data_dictionary.
 
     EXAMPLE
     Read and define hgt:
@@ -164,7 +164,7 @@ def anomalies(var_in):
     >>> hgt = data['hgt'][:,0,:,:]
 
     Create a hgt dictionary
-    >>> hgt_dictionary = ca.clima_anom(hgt)
+    >>> hgt_dictionary = ca.data_dictionary(hgt)
 
     Obtain the monthly anomalies matrix
     >>> hgt_climatology = ca.anomalies(hgt_dictionary)
@@ -199,7 +199,7 @@ def season(var_in,season=1):
     :param var_in: DataFrame
     :param season: integer
 
-    This function uses the output to ca.clima_anom and one indicator for the 
+    This function uses the output to ca.data_dictionary and one indicator for the 
     specific season define as season.
 
     season options:
@@ -215,7 +215,7 @@ def season(var_in,season=1):
     >>> hgt = data['hgt'][:,0,:,:]
     
     Create a hgt dictionary
-    >>> hgt_dictionary = ca.clima_anom(hgt)
+    >>> hgt_dictionary = ca.data_dictionary(hgt)
 
     Obtain the climatologies and anomalies for each season
     >>> clima_summer, anom_summer = ca.season(hgt_dictionary,1)

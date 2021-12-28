@@ -1,0 +1,9 @@
+README.md
+setup.py
+clima_anom/__init__.py
+clima_anom/clima_anom.py
+clima_anom.egg-info/PKG-INFO
+clima_anom.egg-info/SOURCES.txt
+clima_anom.egg-info/dependency_links.txt
+clima_anom.egg-info/not-zip-safe
+clima_anom.egg-info/top_level.txt

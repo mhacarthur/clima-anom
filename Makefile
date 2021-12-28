@@ -1,6 +1,9 @@
 clean:
+	rm -rf build clima_anom.egg-info
+
+uninstall:
 	pip uninstall clima_anom -y
-	rm -rf build clima_anon.egg-info
+
 install:
 	pip install --user --upgrade .
 run:

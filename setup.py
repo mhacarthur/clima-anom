@@ -8,8 +8,8 @@ HERE = pathlib.Path(__file__).parent.resolve()
 LONG_DESCRIPTION = (HERE / 'README.md').read_text(encoding='utf-8')
 
 requires = [
-    'numpy==1.16.6',
-    'pandas==0.24.2', 
+    'numpy==1.21.2',
+    'pandas==1.3.4', 
 ]
 
 setup(

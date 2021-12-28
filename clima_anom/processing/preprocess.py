@@ -9,7 +9,7 @@ def data_dictionary(var_in):
     PARAMETERS
     :param var_input: float
 
-    This funtion only needs the data input (3d numpy-array), where this data is 
+    This function only needs the data input (3d numpy-array), where this data is 
     define as [time, latitude, longitude]. 
 
     The DataFrame output it composed for three levels:
@@ -114,7 +114,7 @@ def climatology(var_in):
     PARAMETERS
     :param var_in: DataFrame
 
-    This funtion uses the output to funtion ca.clima_anom.
+    This function uses the output to ca.clima_anom.
 
     EXAMPLE
     Read and define hgt:
@@ -155,7 +155,7 @@ def anomalies(var_in):
     PARAMETERS
     :param var_in: DataFrame
 
-    This funtion uses the output to funtion ca.clima_anom.
+    This function uses the output to ca.clima_anom.
 
     EXAMPLE
     Read and define hgt:
@@ -199,8 +199,8 @@ def season(var_in,season=1):
     :param var_in: DataFrame
     :param season: integer
 
-    This funtion uses the output to funtion ca.clima_anom and one indicator 
-    for the specific season define as season.
+    This function uses the output to ca.clima_anom and one indicator for the 
+    specific season define as season.
 
     season options:
     * for summer season = 1

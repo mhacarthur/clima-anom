@@ -1,5 +1,7 @@
 
 import numpy as np
+import matplotlib.colors
+from matplotlib import pyplot as plt
 import calendar
 
 def extract_area(data,lat,lon,lat_min,lat_max,lon_min,lon_max):
@@ -120,3 +122,18 @@ def DiasDoAno(ano,mes):
             return day_start,day_end
                 
     return day_start,day_end
+
+def colorbar_middle_white(cmap,n=35,x=0.5):
+    n = 35
+    x = 0.5
+
+    lower = cmap(np.linspace(0, x, n))
+    white = np.ones((80-2*n,4))
+    upper = cmap(np.linspace(1-x, 1, n))
+
+    colors = np.vstack((lower, white, upper))
+
+    tmap = matplotlib.colors.LinearSegmentedColormap.from_list('map_white', colors)
+
+    return tmap
+

@@ -95,14 +95,14 @@ def read_netcdf(filename,show=1):
 def create_netcdf(info,data,latitude,longitude):
     """
     DESCRIPTION
-    Funtion for export data numpy array to netcdf format.
+    Function for export data numpy array to netcdf format.
 
     PARAMETERS
     :param latitude: float 
     :param longitude: float
     :param var_input: float
 
-    This funtion uses four inputs. First an info dictionary called info that
+    This function uses four inputs. First an info dictionary called info that
     contains the principal information about the netcdf file what will be 
     created, the data input matrix (3d numpy-array), latitude (1d numpy-array) 
     and longitude (1d numpy-array).

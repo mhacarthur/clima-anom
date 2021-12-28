@@ -48,7 +48,7 @@ def extract_area(data,lat,lon,lat_min,lat_max,lon_min,lon_max):
 def DiasDoAno(ano,mes):
     '''
     DESCRIPTION
-    This Funtion shows start and end day of year.
+    This Function shows start and end day of year.
 
     :param ano: integer
     :param mes: string
@@ -124,8 +124,24 @@ def DiasDoAno(ano,mes):
     return day_start,day_end
 
 def colorbar_middle_white(cmap,n=35,x=0.5):
-    n = 35
-    x = 0.5
+    """
+    DESCRIPTION
+    Function to add middle white from another colorbar 
+
+    PARAMETERS
+    :param cmap: colormap
+    :param n: integer
+    :param x: float
+
+    from a colorbar definas as cmap, n as the number of nivels and the increment, 
+    this is a simple function to modify a specific colorbar.
+
+    EXAMPLE
+    This example uses a red to blue colorbar 
+    >>> cmap = plt.cm.RdBu_r
+    Now create a colorbar with white in the middle
+    >>> cmap_sst = colorbar_middle_white(cmap)
+    """
 
     lower = cmap(np.linspace(0, x, n))
     white = np.ones((80-2*n,4))

@@ -22,7 +22,7 @@ def remove_continent_ocean(var_in,latitude,longitude,remove='continent'):
     :param longitude: float
     :param remove: string
 
-    This funtion needs a principal data input that is var_in (3d numpy-array), 
+    This function needs a principal data input that is var_in (3d numpy-array), 
     latitude (1d numpy-array), longitude (1d numpy-array) and remove (string).
     Where remove is only a number to represent the extraction objective.
     
@@ -155,7 +155,7 @@ def extract_shapefile(shapefile_dir,data_in,lat_in,lon_in,shp_id=0):
     :param lon_in: float
     :param shp_id: int
 
-    This funtion needs a shapefile directory define with a variable shapefile_dir
+    This function needs a shapefile directory define with a variable shapefile_dir
     (string), the variable for extract define as data_in (3d numpy-array), 
     latitude (1d numpy-array), longitude (1d numpy-array) and one identifier
     for specific layer number into the shapefile, shp_id (integer).

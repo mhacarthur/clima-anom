@@ -123,31 +123,51 @@ def DiasDoAno(ano,mes):
                 
     return day_start,day_end
 
-def colorbar_middle_white(cmap,n=35,x=0.5):
+def colorbar_middle_white(cmap,position='middle',n=35,x=0.5):
     """
     DESCRIPTION
     Function to add middle white from another colorbar 
 
     PARAMETERS
     :param cmap: colormap
+    :param position: string or integer
     :param n: integer
     :param x: float
 
     from a colorbar definas as cmap, n as the number of nivels and the increment, 
     this is a simple function to modify a specific colorbar.
 
+    The parameter position input could be defined as:
+    1. Starting with white: position = 'left' or position = -1
+    2. midlle with white: position = 'middle' or position = 0
+    3. ending with white: position = 'right' or position = 1   
+
     EXAMPLE
     This example uses a red to blue colorbar 
-    >>> cmap = plt.cm.RdBu_r
-    Now create a colorbar with white in the middle
-    >>> cmap_sst = colorbar_middle_white(cmap)
+    >>> cmap = plt.cm.Spectral_r
+    Colorbar with white in the left
+    >>> cmap_sst = colorbar_middle_white(cmap,-1)
+    Colorbar with white in the middle
+    >>> cmap_sst = colorbar_middle_white(cmap,0)
+    Colorbar with white in the right
+    >>> cmap_sst = colorbar_middle_white(cmap,1)
     """
 
     lower = cmap(np.linspace(0, x, n))
     white = np.ones((80-2*n,4))
     upper = cmap(np.linspace(1-x, 1, n))
 
-    colors = np.vstack((lower, white, upper))
+    if position == 'left' or position == -1:
+        colors = np.vstack((white, lower, upper))
+    elif position == 'middle' or position == 0:
+        colors = np.vstack((lower, white, upper))
+    elif position == 'right' or position == 1:
+        colors = np.vstack((lower, upper, white))
+    else:
+        print(f'ERROR: position {position} is not defined')
+        print('Try to: left, middle, right or -1, 0, 1')
+        tmap = None
+        return tmap
 
     tmap = matplotlib.colors.LinearSegmentedColormap.from_list('map_white', colors)
 

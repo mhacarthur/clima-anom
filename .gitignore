@@ -4,4 +4,5 @@ test/
 __pycache__
 *.pyc
 clima_anom/test.ipynb
+test.ipynb
 .release-it.json

@@ -1,8 +1,6 @@
 # Byte-compiled / optimized / DLL files
-test/
 .ipynb_checkpoints/
 __pycache__
 *.pyc
-clima_anom/test.ipynb
-test.ipynb
+test/*
 .release-it.json

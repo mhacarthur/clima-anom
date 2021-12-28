@@ -1,6 +1,4 @@
-# Byte-compiled / optimized / DLL files
 .ipynb_checkpoints/
 __pycache__
-*.pyc
-test/*
+#test/*
 .release-it.json

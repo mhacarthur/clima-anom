@@ -25,6 +25,6 @@ setup(
     packages=find_packages(where=HERE),
     python_requires='>=3.5, <=3.10.1',
     install_requires=requires,
-    keywords=['climatology','anomalies','monthly','correlation','netcdf','closest','MAE','RMSE','BIAS','DiasDoAno','Createnetcdf','remove continent','remove ocean','shapefile remove'],
+    keywords=['climatology','anomalies','monthly','correlation','netcdf','MAE','RMSE','BIAS','Create netcdf','remove continent','remove ocean','shapefile remove'],
     zip_safe=False,
 )

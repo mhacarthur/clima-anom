@@ -9,7 +9,7 @@ LONG_DESCRIPTION = (HERE / 'README.md').read_text(encoding='utf-8')
 
 requires = [
     'numpy==1.21.2',
-    'pandas==1.3.4', 
+    'pandas==1.3.4',
 ]
 
 setup(
@@ -23,7 +23,7 @@ setup(
     author_email='arturo66cta@gmail.com',
     license='MIT',
     packages=find_packages(where=HERE),
-    python_requires='>=3.5, <=3.9.7',
+    python_requires='>=3.5, <=3.10.1',
     install_requires=requires,
     keywords=['climatology','anomalies','monthly','correlation','netcdf','closest','MAE','RMSE','BIAS','DiasDoAno','Createnetcdf','remove continent','remove ocean','shapefile remove'],
     zip_safe=False,

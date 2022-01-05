@@ -4,52 +4,53 @@ import matplotlib.colors
 from matplotlib import pyplot as plt
 import calendar
 
-def extract_area(data,lat,lon,lat_min,lat_max,lon_min,lon_max):
+def redefinir_area(data_in,lat_in,lon_in,lat_min,lat_max,lon_min,lon_max):
     '''
     DESCRIPTION
-    Extract info for a specific region using latitude and longitude limits.
+    Funntion to extract a specific region 
 
-    :param data: float
-    :param lat: float
-    :param lon: float
+    PARAMETERS
+    :param data_in: float
+    :param lat_in: float
+    :param lon_in: float
+    :param lat_min: float
+    :param lat_max: float
+    :param lon_min: float
+    :param lon_max: float
 
     EXAMPLE
-    data_out, lat_out, lon_out = extract_area(data,lat,lon,-10.5,10.5,-60.5,50.5)
+    Read and define hgt, latitude and longitude:
+    >>> data_dir = '/home/user/Data/Hgt_1000hPa_Dec49_Feb20.nc'
+    >>> data = ca.read_netcdf(data_dir,1)
+    >>> hgt = data['hgt'][:,0,:,:]
+    >>> lat = data['latitude']
+    >>> lon = data['longitude']
+
+    Define limits for region 
+    >>> lat_min = -17; lat_max = 17
+    >>> lon_min = -50; lon_max = 15
+
+    Extract area
+    >>> hgt_cut, lat_cut, lon_cut = redefinir_area(hgt,lat,lon,lat_min,lat_max,lon_min,lon_max)
+
     '''
     
-    #https://stackoverflow.com/questions/29135885/netcdf4-extract-for-subset-of-lat-lon
+    y_bounds = np.where((lat_in>=lat_min)&(lat_in<=lat_max))[0]
+    lat_tmp = lat_in[y_bounds]
     
-    print('Data shape     : ',np.shape(data))
-    print('Latitude shape : ',np.shape(lat))
-    print('Longitude shape: ',np.shape(lon))
-    print('')
+    x_bounds = np.where((lon_in>=lon_min)&(lon_in<=lon_max))[0]
+    lon_tmp = lon_in[x_bounds]
+
+    data_out = data_in[:,y_bounds[0]:y_bounds[-1]+1,x_bounds[0]:x_bounds[-1]+1]
     
-    latbounds = [lat_min,lat_max]
-    lonbounds = [lon_min,lon_max]
-    
-    #latli = np.argmin( np.abs( lat - latbounds[0] ) )
-    #latui = np.argmin( np.abs( lat - latbounds[1] ) ) 
-    latli = np.argmin( np.abs( lat - latbounds[1] ) ) 
-    latui = np.argmin( np.abs( lat - latbounds[0] ) )
-    
-    lonli = np.argmin( np.abs( lon - lonbounds[0] ) )
-    lonui = np.argmin( np.abs( lon - lonbounds[1] ) )  
-    
-    lat_out = lat[latli:latui+1]
-    lon_out = lon[lonli:lonui+1]
-    
-    data_out = data[ : , latli:latui+1 , lonli:lonui+1 ] 
-    
-    print('Interest Area dimension: ',np.shape(data_out))
-    print('')
-    
-    return data_out,lat_out,lon_out
+    return data_out, lat_tmp, lon_tmp
 
 def DiasDoAno(ano,mes):
     '''
     DESCRIPTION
     This Function shows start and end day of year.
 
+    PARAMETERS
     :param ano: integer
     :param mes: string
 

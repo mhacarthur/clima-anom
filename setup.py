@@ -1,4 +1,3 @@
-#https://www.tutorialsteacher.com/python/python-package
 from setuptools import setup, find_packages
 import os
 import pathlib
@@ -14,7 +13,7 @@ requires = [
 
 setup(
     name='clima_anom',
-    version='0.6.9',
+    version='0.7.0',
     description='Obtain the climatology and anomalies only for monthly data.',
     long_description=LONG_DESCRIPTION,
     long_description_content_type='text/markdown',
@@ -22,7 +21,8 @@ setup(
     author='Cesar Arturo Sanchez Pena',
     author_email='arturo66cta@gmail.com',
     license='MIT',
-    packages=find_packages(where=HERE),
+    # packages=find_packages(where=HERE),
+    packages=find_packages(where='.'+os.sep),
     python_requires='>=3.5, <=3.10.1',
     install_requires=requires,
     keywords=['climatology','anomalies','monthly','correlation','netcdf','MAE','RMSE','BIAS','Create netcdf','remove continent','remove ocean','shapefile remove'],

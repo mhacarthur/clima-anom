@@ -5,9 +5,6 @@ install:
 uninstall:
 	pip uninstall clima_anom -y
 
-run:
-	python /home/adriano/clima-anom/examples/elputin.py
-
 publish:
 	python setup.py sdist bdist_wheel
 	twine upload dist/*

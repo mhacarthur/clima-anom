@@ -2,5 +2,5 @@
 __pycache__
 #test/*
 .release-it.json
-build/
-clima_anom.egg-info/
+./build
+./clima_anom.egg-info

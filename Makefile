@@ -8,4 +8,4 @@ uninstall:
 publish:
 	python setup.py sdist bdist_wheel
 	twine upload dist/*
-	rm -rf dist build clima_anon.egg-info
+	rm -rf dist build clima_anom.egg-info

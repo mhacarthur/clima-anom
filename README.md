@@ -15,17 +15,12 @@ Pip install
 
 Manual installation
 ------------
-clima\_anom works on Python 3 for Linux, Windows or OSX.
-
-    $git clone https://github.com/mhacarthur/clima_anom.git
-
-first clone the package then inside
-
-    $cd clima_anom
-
-and install
-
-    $pip install .
+clone clima\_anom and install.
+```console
+git clone https://github.com/mhacarthur/clima_anom.git
+cd clima_anom
+pip install .
+```
 
 Data
 ----
@@ -33,6 +28,21 @@ The data use for examples is in directory data. For complete data see:
 
 [TRMM 3B42-v7 daily](https://disc.gsfc.nasa.gov/datasets/TRMM_3B42_Daily_7/summary)
 
+Example
+---
+```python
+import os
+import clima_anom as ca
+
+data_dir = '..'+os.sep+'data'+os.sep+'3B42_199901_201212.nc'
+data = ca.read_netcdf(data_dir,2)
+
+lat = data['lat']
+lon = data['lon']
+pre = data['prec']
+
+pre_dictionary = ca.data_dictionary(pre)
+```
 
 Figures
 ----

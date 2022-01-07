@@ -11,7 +11,9 @@ This code provides experimental and simples tools for differents operations on c
 
 Pip install
 ------------
-    $pip install clima-anom
+```console
+pip install clima-anom
+```
 
 Manual installation
 ------------

@@ -6,23 +6,45 @@ Climatology and Anomalies in Python
 =================================================
 
 Overview
---------
+---
 This code provides experimental and simples tools for differents operations on climate data, mainly obtaining climatologies and anomalies values, in addition to others operations such as data extraction from continent, ocean or a shapefile.
 
 Pip install
-------------
-```console
+---
+```bash
 pip install clima-anom
 ```
 
 Manual installation
-------------
-clone clima\_anom and install.
-```console
-git clone https://github.com/mhacarthur/clima_anom.git
-cd clima_anom
-pip install .
-```
+---
+clone clima\_anom and install in exists or new conda env. 
+
+1. Clone repo and install
+
+  ```bash
+  git clone https://github.com/mhacarthur/clima_anom.git
+  cd clima_anom
+  pip install .
+  ```
+
+Dependencies
+----
+- Python >= 3.5 
+- cartopy == 0.18.0
+- netcdf4 == 1.5.7
+- pyshp == 2.1.3
+- Option: Linux
+
+1. How to install dependencies
+
+  ```bash
+  # cartopy
+  conda install -c conda-forge cartopy
+  # netcdf4
+  conda install netcdf4
+  # pyshp
+  pip install pyshp
+  ```
 
 Data
 ----

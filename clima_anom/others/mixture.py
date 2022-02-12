@@ -174,3 +174,49 @@ def colorbar_middle_white(cmap,position='middle',n=35,x=0.5):
 
     return tmap
 
+def days_number(year,month):
+    """
+    DESCRIPTION
+    Function obtain the number of days to month
+
+    PARAMETERS
+    :param year: str
+    :param month: str
+
+    EXAMPLE
+    This example obtain the number days to may 
+    >>> Year = '2018'
+    >>> Month = '05'
+    >>> Num_dias = ca.days_number(Year,Month)
+    """
+    month = str(month)
+
+    if month == '01' or month == '1' or month == 1:
+        Num_dias = 31
+    elif month == '02' or month == '2' or month == 2:
+        if (int(year)%4==0 and int(year)%100!=0) or (int(year)%400==0):
+            Num_dias = 29
+        else:
+            Num_dias = 28
+    elif month == '03' or month == '3' or month == 3:
+        Num_dias = 31
+    elif month == '04' or month == '4' or month == 4:
+        Num_dias = 30
+    elif month == '05' or month == '5' or month == 5:
+        Num_dias = 31
+    elif month == '06' or month == '6' or month == 6:
+        Num_dias = 30
+    elif month == '07' or month == '7' or month == 7:
+        Num_dias = 31
+    elif month == '08' or month == '8' or month == 8:
+        Num_dias = 31
+    elif month == '09' or month == '9' or month == 9:
+        Num_dias = 30
+    elif month == '10' or month == '10' or month == 10:
+        Num_dias = 31
+    elif month == '11' or month == '11' or month == 11:
+        Num_dias = 30
+    elif month == '12' or month == '12' or month == 12:
+        Num_dias = 31
+
+    return Num_dias

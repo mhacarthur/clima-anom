@@ -10,7 +10,7 @@ import shapely.geometry as sgeom
 from shapely.ops import unary_union
 from shapely.prepared import prep
 
-def remove_continent_ocean_test(var_in,latitude,longitude,remove='continent',value=1):
+def remove_continent_ocean(var_in,latitude,longitude,remove='continent',value=1):
     '''
     DESCRIPTION
     Remove continent or ocean for input data, the remove layer aim is replaced 

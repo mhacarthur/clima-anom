@@ -189,7 +189,7 @@ def create_netcdf(info,data,latitude,longitude):
         print('Time End:',dates[-1])
         print('Time Frequency:',info['time_frequency'])
         print('Time Lenght:',len(dates))
-           
+
     elif info['time_frequency'] == 'Hourly' or info['time_frequency'] == 'hourly':
         dates = [dt for dt in rrule(HOURLY, interval=info['time_interval'], dtstart=str_dt, until=end_dt)]
         print('Time Start:',dates[0])

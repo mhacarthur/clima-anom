@@ -226,7 +226,7 @@ def days_number(year,month):
         ds = 1
         de = 30
 
-    elif Mes == '05':
+    elif month == '05':
         month_name = 'Mayo'
         Num_dias = 31
         ds = 1

@@ -10,7 +10,7 @@ import shapely.geometry as sgeom
 from shapely.ops import unary_union
 from shapely.prepared import prep
 
-def remove_continent_ocean(var_in,latitude,longitude,remove='continent'):
+def remove_continent_ocean(var_in,latitude,longitude,remove='continent',value=1):
     '''
     DESCRIPTION
     Remove continent or ocean for input data, the remove layer aim is replaced 
@@ -21,6 +21,7 @@ def remove_continent_ocean(var_in,latitude,longitude,remove='continent'):
     :param latitude: float
     :param longitude: float
     :param remove: string
+    :param value: int
 
     This function needs a principal data input that is var_in (3d numpy-array), 
     latitude (1d numpy-array), longitude (1d numpy-array) and remove (string).
@@ -29,6 +30,7 @@ def remove_continent_ocean(var_in,latitude,longitude,remove='continent'):
     remove options:
     * for remove continent: remove = 'continent'
     * for remove ocean    : remove = 'ocean'
+    * for value           : value = 0 or 1 for replace with 0 or NaN
 
     EXAMPLE
     Read and define hgt, latitude and longitude:
@@ -38,13 +40,24 @@ def remove_continent_ocean(var_in,latitude,longitude,remove='continent'):
     >>> lat = data['latitude']
     >>> lon = data['longitude']
 
-    Extract continent
-    >>> hgt_without_continent = ca.remove_continent_ocean(hgt,lat,lon,'continent')
+    Extract continent. This option replace continent with NaN
+    >>> hgt_without_continent = ca.remove_continent_ocean(hgt,lat,lon,'continent',1)
     
-    Extract ocean
-    >>> hgt_without_ocean = ca.remove_continent_ocean(hgt,lat,lon,'ocean')
+    Extract ocean. This option replace ocean with zero
+    >>> hgt_without_ocean = ca.remove_continent_ocean(hgt,lat,lon,'ocean',0)
     '''
     
+    if value == 0:
+        value_tmp = 0
+    elif value == 1:
+        value_tmp = np.nan
+    else:
+        print(f'ERROR: value {value} is not defined, choose one:')
+        print('0: to replace continent/ocean with zero')
+        print('1: to replace continent/ocean with NaN')
+        var_out = 0
+        return var_out
+
     land_shp_fname = shpreader.natural_earth(resolution='50m',category='physical', name='land')
 
     land_geom = unary_union(list(shpreader.Reader(land_shp_fname).geometries()))
@@ -86,7 +99,7 @@ def remove_continent_ocean(var_in,latitude,longitude,remove='continent'):
                     if land.contains(sgeom.Point(i,j)) == True:
                         a, = np.where(latitude == j)
                         b, = np.where(longitude == i)
-                        var_out[a,b] = np.nan
+                        var_out[a,b] = value_tmp
             return var_out
         
         if remove == 'ocean' or remove == 'Ocean' or remove == '2':
@@ -95,7 +108,7 @@ def remove_continent_ocean(var_in,latitude,longitude,remove='continent'):
                     if land.contains(sgeom.Point(i,j)) == False:
                         a, = np.where(latitude == j)
                         b, = np.where(longitude == i)
-                        var_out[a,b] = np.nan
+                        var_out[a,b] = value_tmp
             return var_out
         
         else:
@@ -114,7 +127,7 @@ def remove_continent_ocean(var_in,latitude,longitude,remove='continent'):
                     if land.contains(sgeom.Point(i,j)) == True:
                         a, = np.where(latitude == j)
                         b, = np.where(longitude == i)
-                        var_out[:,a,b] = np.nan
+                        var_out[:,a,b] = value_tmp
             return var_out
         
         if remove == 'ocean' or remove == 'Ocean' or remove == '2':
@@ -123,12 +136,12 @@ def remove_continent_ocean(var_in,latitude,longitude,remove='continent'):
                     if land.contains(sgeom.Point(i,j)) == False:
                         a, = np.where(latitude == j)
                         b, = np.where(longitude == i)
-                        var_out[:,a,b] = np.nan
+                        var_out[:,a,b] = value_tmp
             return var_out
     
         else:
             print('')
-            print('ERROR: Option',remove,'doesn\'t exist, choose one:')
+            print(f'ERROR: Option {remove} doesn\'t exist, choose one:')
             print('1: continent')
             print('2: ocean')
             var_out = 0

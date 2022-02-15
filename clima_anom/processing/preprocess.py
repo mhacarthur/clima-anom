@@ -236,7 +236,7 @@ def season(var_in,season=1):
         anom = np.zeros([(anos)-1,len_lat,len_lon])
         for i in range(anos-1):
             anom[i,:,:]=(var_in['dec']['anom'][i,:,:]+var_in['jan']['anom'][i+1,:,:]+var_in['feb']['anom'][i+1,:,:])/3
-         
+
         print('')
         print('Climatology: ',np.shape(clima))
         print('Anomaly: ',np.shape(anom))
@@ -254,7 +254,7 @@ def season(var_in,season=1):
         anom = np.zeros([(anos)-1,len_lat,len_lon])
         for i in range(anos-1):
             anom[i,:,:]=(var_in['mar']['anom'][i,:,:]+var_in['apr']['anom'][i+1,:,:]+var_in['may']['anom'][i+1,:,:])/3
-         
+
         print('')
         print('Climatology: ',np.shape(clima))
         print('Anomaly: ',np.shape(anom))
@@ -271,7 +271,7 @@ def season(var_in,season=1):
         anom = np.zeros([(anos)-1,len_lat,len_lon])
         for i in range(anos-1):
             anom[i,:,:]=(var_in['jun']['anom'][i,:,:]+var_in['jul']['anom'][i+1,:,:]+var_in['ago']['anom'][i+1,:,:])/3
-         
+
         print('')
         print('Climatology: ',np.shape(clima))
         print('Anomaly: ',np.shape(anom))
@@ -288,7 +288,7 @@ def season(var_in,season=1):
         anom = np.zeros([(anos)-1,len_lat,len_lon])
         for i in range(anos-1):
             anom[i,:,:]=(var_in['sep']['anom'][i,:,:]+var_in['oct']['anom'][i+1,:,:]+var_in['nov']['anom'][i+1,:,:])/3
-         
+
         print('')
         print('Climatology: ',np.shape(clima))
         print('Anomaly: ',np.shape(anom))

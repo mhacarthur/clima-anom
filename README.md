@@ -75,6 +75,15 @@ Montlhy climatology for rainfall
   <img src="https://raw.githubusercontent.com/mhacarthur/clima_anom/master/figures/Monthly_Climatology.png" alt="Monthly_Climatology" />
 </div>
 
+Colorbar example
+<div align="center">
+  <img src="https://raw.githubusercontent.com/mhacarthur/clima_anom/master/figures/Colorbar_1.png" alt="colorbar1" />
+</div>
+
+<div align="center">
+  <img src="https://raw.githubusercontent.com/mhacarthur/clima_anom/master/figures/Colorbar_2.png" alt="colorbar2" />
+</div>
+
 Sesonal climatology for rainfall
 <div align="center">
   <img src="https://raw.githubusercontent.com/mhacarthur/clima_anom/master/figures/Monthly_Seasonal.png" alt="Seasonal Climatology" />

@@ -174,3 +174,108 @@ def colorbar_middle_white(cmap,position='middle',n=35,x=0.5):
 
     return tmap
 
+def days_number(year,month):
+    """
+    DESCRIPTION
+    Function obtain the number of days to month
+
+    PARAMETERS
+    :param year: str
+    :param month: str
+
+    OUPUTS
+    Num_dias   : number of days of the month
+    ds         : Day start
+    de         : Day end
+    month_name : Month Name
+
+    EXAMPLE
+    This example obtain the number days to may 
+    >>> Year = '2018'
+    >>> Month = '05'
+    >>> Num_dias, ds, de, month_name = ca.days_number(Year,Month)
+    """
+    month = str(month)
+
+    if month == '01':
+        month_name = 'Enero'
+        Num_dias = 31
+        ds = 1
+        de = 31
+
+    elif month == '02':
+        month_name = 'Febrero'
+        if (int(year)%4==0 and int(year)%100!=0) or (int(year)%400==0):
+            Num_dias = 29
+            ds = 1
+            de = 29
+        else:
+            Num_dias = 28
+            ds = 1
+            de = 28
+
+    elif month == '03':
+        month_name = 'Marzo'
+        Num_dias = 31
+        ds = 1
+        de = 31
+
+    elif month == '04':
+        month_name = 'Abril'
+        Num_dias = 30
+        ds = 1
+        de = 30
+
+    elif month == '05':
+        month_name = 'Mayo'
+        Num_dias = 31
+        ds = 1
+        de = 31
+
+    elif month == '06':
+        month_name = 'Junio'
+        Num_dias = 30
+        ds = 1
+        de = 30
+
+    elif month == '07':
+        month_name = 'Julio'
+        Num_dias = 31
+        ds = 1
+        de = 31
+
+    elif month == '08':
+        month_name = 'Agosto'
+        Num_dias = 31
+        ds = 1
+        de = 31
+
+    elif month == '09':
+        month_name = 'Septiembre'
+        Num_dias = 30
+        ds = 1
+        de = 30
+
+    elif month == '10':
+        month_name = 'Octubre'
+        Num_dias = 31
+        ds = 1
+        de = 31
+
+    elif month == '11':
+        month_name = 'Noviembre'
+        Num_dias = 30
+        ds = 1
+        de = 30
+
+    elif month == '12':
+        month_name = 'Diciembre'
+        Num_dias = 31
+        ds = 1
+        de = 31
+
+    print('Ano: ',year)
+    print('Mes: ',month_name)
+
+    return Num_dias, ds, de, month_name
+

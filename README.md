@@ -50,7 +50,7 @@ Data
 ----
 The data use for examples is in directory data. For complete data see:
 
-[TRMM 3B42-v7 daily](https://disc.gsfc.nasa.gov/datasets/TRMM_3B42_Daily_7/summary)
+[TRMM Precipitation L3 daily 0.25x0.25 V7](https://disc.gsfc.nasa.gov/datasets/TRMM_3B42_Daily_7/summary)
 
 Example
 ---

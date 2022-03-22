@@ -1,3 +1,4 @@
 Pending modifications or updates
 * Netcdf export ERROR with the matrix has one time
 * Add netcdf description data
+* Add time data input in ca.data_dictionary for montlhy anda daily data

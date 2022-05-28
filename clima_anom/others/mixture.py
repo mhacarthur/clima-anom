@@ -45,85 +45,6 @@ def redefinir_area(data_in,lat_in,lon_in,lat_min,lat_max,lon_min,lon_max):
     
     return data_out, lat_tmp, lon_tmp
 
-def DiasDoAno(ano,mes):
-    '''
-    DESCRIPTION
-    This Function shows start and end day of year.
-
-    PARAMETERS
-    :param ano: integer
-    :param mes: string
-
-    EXAMPLE
-    >>> DiasDoAno(2015,feb)
-    >>> DiasDoAno(2015,Feb)
-    >>> DiasDoAno(2015,February)
-    '''
-    
-    if calendar.isleap(ano) == True:
-
-        if mes == 'jan' or mes == 'Jan' or mes == 'January': 
-            day_start=1;day_end=31
-        elif mes == 'feb' or mes == 'Feb' or mes == 'February':
-            day_start=32;day_end=60
-        elif mes == 'mar' or mes == 'Mar' or mes == 'March':
-            day_start=61;day_end=91
-        elif mes == 'apr' or mes == 'Apr' or mes == 'April':
-            day_start=92;day_end=121
-        elif mes == 'may' or mes == 'May' or mes == 'May':
-            day_start=122;day_end=152
-        elif mes == 'jun' or mes == 'Jun' or mes == 'June':
-            day_start=153;day_end=182
-        elif mes == 'jul' or mes == 'Jul' or mes == 'July':
-            day_start=183;day_end=213
-        elif mes == 'ago' or mes == 'Ago' or mes == 'August':
-            day_start=214;day_end=244
-        elif mes == 'sep' or mes == 'Sep' or mes == 'September':
-            day_start=245;day_end=274
-        elif mes == 'oct' or mes == 'Oct' or mes == 'October':
-            day_start=275;day_end=305
-        elif mes == 'nov' or mes == 'Nov' or mes == 'November':
-            day_start=306;day_end=335
-        elif mes == 'dec' or mes == 'Dec' or mes == 'December':
-            day_start=336;day_end=366
-        else:
-            print('ERROR: Month name')
-            day_start=0;day_end=0
-            return day_start,day_end
-
-    else:
-
-        if mes == 'jan' or mes == 'Jan' or mes == 'January':
-            day_start=1;day_end=31
-        elif mes == 'feb' or mes == 'Feb' or mes == 'February':
-            day_start=32;day_end=59
-        elif mes == 'mar' or mes == 'Mar' or mes == 'March':
-            day_start=60;day_end=90
-        elif mes == 'apr' or mes == 'Apr' or mes == 'April':
-            day_start=91;day_end=120
-        elif mes == 'may' or mes == 'May' or mes == 'May':
-            day_start=121;day_end=151
-        elif mes == 'jun' or mes == 'Jun' or mes == 'June':
-            day_start=152;day_end=181
-        elif mes == 'jul' or mes == 'Jul' or mes == 'July':
-            day_start=182;day_end=212
-        elif mes == 'ago' or mes == 'Ago' or mes == 'August':
-            day_start=213;day_end=243
-        elif mes == 'sep' or mes == 'Sep' or mes == 'September':
-            day_start=244;day_end=273
-        elif mes == 'oct' or mes == 'Oct' or mes == 'October':
-            day_start=274;day_end=304
-        elif mes == 'nov' or mes == 'Nov' or mes == 'November':
-            day_start=305;day_end=334
-        elif mes == 'dec' or mes == 'Dec' or mes == 'December':
-            day_start=335;day_end=365
-        else:
-            print('ERROR: Month name')
-            day_start=0;day_end=0
-            return day_start,day_end
-                
-    return day_start,day_end
-
 def colorbar_middle_white(cmap,position='middle',n=35,x=0.5):
     """
     DESCRIPTION
@@ -279,3 +200,82 @@ def days_number(year,month):
 
     return Num_dias, ds, de, month_name
 
+def DiasDoAno(ano,mes):
+    '''
+    DESCRIPTION
+    This Function shows start and end day of year.
+
+    PARAMETERS
+    :param ano: integer
+    :param mes: string
+
+    EXAMPLE
+    >>> DiasDoAno(2015,feb)
+    >>> DiasDoAno(2015,Feb)
+    >>> DiasDoAno(2015,February)
+    >>> (32, 59) #(day_start, day_end)
+    '''
+    
+    if calendar.isleap(ano) == True:
+
+        if mes == 'jan' or mes == 'Jan' or mes == 'January': 
+            day_start=1;day_end=31
+        elif mes == 'feb' or mes == 'Feb' or mes == 'February':
+            day_start=32;day_end=60
+        elif mes == 'mar' or mes == 'Mar' or mes == 'March':
+            day_start=61;day_end=91
+        elif mes == 'apr' or mes == 'Apr' or mes == 'April':
+            day_start=92;day_end=121
+        elif mes == 'may' or mes == 'May' or mes == 'May':
+            day_start=122;day_end=152
+        elif mes == 'jun' or mes == 'Jun' or mes == 'June':
+            day_start=153;day_end=182
+        elif mes == 'jul' or mes == 'Jul' or mes == 'July':
+            day_start=183;day_end=213
+        elif mes == 'ago' or mes == 'Ago' or mes == 'August':
+            day_start=214;day_end=244
+        elif mes == 'sep' or mes == 'Sep' or mes == 'September':
+            day_start=245;day_end=274
+        elif mes == 'oct' or mes == 'Oct' or mes == 'October':
+            day_start=275;day_end=305
+        elif mes == 'nov' or mes == 'Nov' or mes == 'November':
+            day_start=306;day_end=335
+        elif mes == 'dec' or mes == 'Dec' or mes == 'December':
+            day_start=336;day_end=366
+        else:
+            print('ERROR: Month name')
+            day_start=0;day_end=0
+            return day_start,day_end
+
+    else:
+
+        if mes == 'jan' or mes == 'Jan' or mes == 'January':
+            day_start=1;day_end=31
+        elif mes == 'feb' or mes == 'Feb' or mes == 'February':
+            day_start=32;day_end=59
+        elif mes == 'mar' or mes == 'Mar' or mes == 'March':
+            day_start=60;day_end=90
+        elif mes == 'apr' or mes == 'Apr' or mes == 'April':
+            day_start=91;day_end=120
+        elif mes == 'may' or mes == 'May' or mes == 'May':
+            day_start=121;day_end=151
+        elif mes == 'jun' or mes == 'Jun' or mes == 'June':
+            day_start=152;day_end=181
+        elif mes == 'jul' or mes == 'Jul' or mes == 'July':
+            day_start=182;day_end=212
+        elif mes == 'ago' or mes == 'Ago' or mes == 'August':
+            day_start=213;day_end=243
+        elif mes == 'sep' or mes == 'Sep' or mes == 'September':
+            day_start=244;day_end=273
+        elif mes == 'oct' or mes == 'Oct' or mes == 'October':
+            day_start=274;day_end=304
+        elif mes == 'nov' or mes == 'Nov' or mes == 'November':
+            day_start=305;day_end=334
+        elif mes == 'dec' or mes == 'Dec' or mes == 'December':
+            day_start=335;day_end=365
+        else:
+            print('ERROR: Month name')
+            day_start=0;day_end=0
+            return day_start,day_end
+                
+    return day_start,day_end

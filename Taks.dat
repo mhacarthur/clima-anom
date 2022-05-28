@@ -1,6 +1,7 @@
 Pending modifications or updates
 * replace ago to aug in ca.data_dictionary
 * Netcdf export ERROR with the matrix has one time
+* Add date time array to export netcdf
 * Add netcdf description data
 * Add time data input in ca.data_dictionary for montlhy anda daily data
 * Define format for input data in ca.remove_continent_ocean, data_in.astype('float32'), and test for integer input matrix

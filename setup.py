@@ -23,7 +23,7 @@ setup(
     license='MIT',
     # packages=find_packages(where=HERE),
     packages=find_packages(where='.'+os.sep),
-    python_requires='>=3.5, <=3.10.1',
+    python_requires='>=3.5',
     install_requires=requires,
     keywords=['climatology','anomalies','monthly','correlation','netcdf','MAE','RMSE','BIAS','Create netcdf','remove continent','remove ocean','shapefile remove'],
     zip_safe=False,

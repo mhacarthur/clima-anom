@@ -62,7 +62,7 @@ def data_dictionary(var_in):
                     "jul": {'data':np.zeros([anos,lat,lon]),
                             'clim':np.zeros([1,lat,lon]),
                             'anom':np.zeros([anos,lat,lon])},
-                    "ago": {'data':np.zeros([anos,lat,lon]),
+                    "aug": {'data':np.zeros([anos,lat,lon]),
                             'clim':np.zeros([1,lat,lon]),
                             'anom':np.zeros([anos,lat,lon])},
                     "sep": {'data':np.zeros([anos,lat,lon]),
@@ -139,7 +139,7 @@ def climatology(var_in):
     var_out[4,:,:] = var_in['may']['clim']
     var_out[5,:,:] = var_in['jun']['clim']
     var_out[6,:,:] = var_in['jul']['clim']
-    var_out[7,:,:] = var_in['ago']['clim']
+    var_out[7,:,:] = var_in['aug']['clim']
     var_out[8,:,:] = var_in['sep']['clim']
     var_out[9,:,:] = var_in['oct']['clim']
     var_out[10,:,:] = var_in['nov']['clim']
@@ -181,7 +181,7 @@ def anomalies(var_in):
         var_out[12*i+4,:,:] = var_in['may']['anom'][i,:,:]
         var_out[12*i+5,:,:] = var_in['jun']['anom'][i,:,:]
         var_out[12*i+6,:,:] = var_in['jul']['anom'][i,:,:]
-        var_out[12*i+7,:,:] = var_in['ago']['anom'][i,:,:]
+        var_out[12*i+7,:,:] = var_in['aug']['anom'][i,:,:]
         var_out[12*i+8,:,:] = var_in['sep']['anom'][i,:,:]
         var_out[12*i+9,:,:] = var_in['oct']['anom'][i,:,:]
         var_out[12*i+10,:,:] = var_in['nov']['anom'][i,:,:]
@@ -266,11 +266,11 @@ def season(var_in,season=1):
         print('WINTER Climatology')
 
         clima = 0
-        clima = (var_in['jun']['clim'][0,:,:] + var_in['jul']['clim'][0,:,:] + var_in['ago']['clim'][0,:,:])/3
+        clima = (var_in['jun']['clim'][0,:,:] + var_in['jul']['clim'][0,:,:] + var_in['aug']['clim'][0,:,:])/3
         
         anom = np.zeros([(anos)-1,len_lat,len_lon])
         for i in range(anos-1):
-            anom[i,:,:]=(var_in['jun']['anom'][i,:,:]+var_in['jul']['anom'][i+1,:,:]+var_in['ago']['anom'][i+1,:,:])/3
+            anom[i,:,:]=(var_in['jun']['anom'][i,:,:]+var_in['jul']['anom'][i+1,:,:]+var_in['aug']['anom'][i+1,:,:])/3
 
         print('')
         print('Climatology: ',np.shape(clima))

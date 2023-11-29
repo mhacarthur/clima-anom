@@ -30,10 +30,10 @@ clone clima\_anom and install in exists or new conda env.
 Dependencies
 ----
 - Python >= 3.5 
-- cartopy == 0.18.0
-- netcdf4 == 1.5.7
-- pyshp == 2.1.3
-- Option: Linux
+- cartopy >= 0.18.0
+- netcdf4 >= 1.5.7
+- pyshp >= 2.1.3
+- OS: Linux
 
 1. How to install dependencies
 
@@ -70,7 +70,7 @@ pre = data['prec']
 pre_dictionary = ca.data_dictionary(pre)
 ```
 
-### Colorbar example 
+### Colorbar with middle white
 ```python
 import clima_anom as ca
 import matplotlib.pyplot as plt

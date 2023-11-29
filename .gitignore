@@ -4,3 +4,6 @@ __pycache__
 .release-it.json
 ./build
 ./clima_anom.egg-info
+.DS_Store
+.release-it.json
+Makefile

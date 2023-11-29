@@ -13,7 +13,7 @@ LONG_DESCRIPTION = (HERE / 'README.md').read_text(encoding='utf-8')
 
 setup(
     name='clima_anom',
-    version='0.7.7',
+    version='0.7.8',
     description='Obtain the climatology and anomalies only for monthly data.',
     long_description=LONG_DESCRIPTION,
     long_description_content_type='text/markdown',

@@ -12,7 +12,7 @@ This code provides experimental and simples tools for differents operations on c
 Pip install
 ---
 ```bash
-pip install clima-anom
+pip install clima_anom
 ```
 
 Manual installation
@@ -54,6 +54,8 @@ The data use for examples is in directory data. For complete data see:
 
 Example
 ---
+
+### Read  data
 ```python
 import os
 import clima_anom as ca
@@ -68,14 +70,14 @@ pre = data['prec']
 pre_dictionary = ca.data_dictionary(pre)
 ```
 
-Figures
-----
-Montlhy climatology for rainfall
-<div align="center">
-  <img src="https://raw.githubusercontent.com/mhacarthur/clima_anom/master/figures/Monthly_Climatology.png" alt="Monthly_Climatology" />
-</div>
+### Colorbar example 
+```python
+import clima_anom as ca
+import matplotlib.pyplot as plt
 
-Colorbar example
+cmap = plt.cm.Spectral_r
+cmap_midle_white = ca.colorbar_middle_white(cmap,'middle')
+```
 <div align="center">
   <img src="https://raw.githubusercontent.com/mhacarthur/clima_anom/master/figures/Colorbar_1.png" alt="colorbar1" />
 </div>
@@ -84,17 +86,41 @@ Colorbar example
   <img src="https://raw.githubusercontent.com/mhacarthur/clima_anom/master/figures/Colorbar_2.png" alt="colorbar2" />
 </div>
 
-Sesonal climatology for rainfall
-<div align="center">
-  <img src="https://raw.githubusercontent.com/mhacarthur/clima_anom/master/figures/Monthly_Seasonal.png" alt="Seasonal Climatology" />
-</div>
+### Remove ocean or continent
+```python
+import numpy as np
+import clima_anom as ca
 
-Remove a specific ocean or continent for rainfall
+data_dir = '..'+os.sep+'data'+os.sep+'3B42_199901_201212_climatology.nc'
+data = ca.read_netcdf(data_dir,2)
+lat = data['lat']
+lon = data['lon']
+pre = data['pre']
+
+pre_continent = ca.remove_continent_ocean(pre,lat,lon,'continent')
+pre_ocen = ca.remove_continent_ocean(pre,lat,lon,'ocean')
+```
 <div align="center">
   <img src="https://raw.githubusercontent.com/mhacarthur/clima_anom/master/figures/Wind_remove_continent_ocean.png" alt="Wind remove mask" />
 </div>
 
-Extract information with a shapefile
+### Extract data using shapefile
+```python
+import clima_anom as ca
+import cartopy.io.shapereader as shpreader
+
+file_shape = '..'+os.sep+'shapefile'+os.sep+''+os.sep+'Amazonas.shp'
+amazonas = list(shpreader.Reader(file_shape).geometries())
+
+data_dir = '..'+os.sep+'data'+os.sep+'3B42_199901_201212_climatology.nc'
+data = ca.read_netcdf(data_dir,2)
+lat = data['lat']
+lon = data['lon']
+pre = data['pre']
+
+pre_amazonas = ca.extract_shapefile('..'+os.sep+'shapefile'+os.sep+'Amazonas.shp',pre,lat,lon,0)
+
+```
 <div align="center">
   <img src="https://raw.githubusercontent.com/mhacarthur/clima_anom/master/figures/Extract_shapefile.png" alt="Shapefile" />
 </div>
